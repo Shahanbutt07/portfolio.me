@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>M. Shahan Butt | AI/ML & Computer Vision Engineer</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="grid-overlay"></div>
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
 
+  <!-- NAV -->
   <nav class="nav">
     <div class="logo">M.Shahan <span class="accent-text">Butt</span></div>
     <div class="nav-links">
@@ -19,88 +22,164 @@
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
+    <div class="nav-status">
+      <span class="status-dot-nav"></span> Available for Work
+    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero-center">
-    <div class="badge-available">● Available for Innovation</div>
-    <h1 class="hero-title">Hi, I'm <br><span class="gradient-text">M. Shahan Butt</span></h1>
-    <h2 class="hero-subtitle">AI/ML Engineer <span class="divider">×</span> Computer Vision</h2>
-    <p class="hero-description">I build <span class="highlight-green">AI chatbots and computer vision systems</span> that <span class="highlight-purple">automate business operations</span> — deployed in production, not just demos.</p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary">🚀 Explore My Work</a>
-      <a href="mailto:shahansqb@gmail.com" class="btn-secondary">Let's Collaborate</a>
-    </div>
-    <div class="hero-tech-stack">
-      <span class="tech-badge">Python</span>
-      <span class="tech-badge">YOLOv8</span>
-      <span class="tech-badge">Computer Vision</span>
-      <span class="tech-badge">LangChain</span>
-      <span class="tech-badge">FastAPI</span>
-      <span class="tech-badge">RAG</span>
-      <span class="tech-badge">Deep Learning</span>
-      <span class="tech-badge">Groq</span>
-      <span class="tech-badge">Streamlit</span>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="badge-available">
+          <span class="pulse-ring"></span>
+          Open to full-time & contract roles
+        </div>
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Shahan Butt</span>
+        </h1>
+        <h2 class="hero-subtitle">I build <span class="accent-text">AI that ships.</span></h2>
+        <p class="hero-description">
+          From LLM chatbots and RAG pipelines to real-time computer vision systems —
+          deployed in production, not just demos.
+          Currently building PropTech AI at <a href="https://mlinksrealestate.com" target="_blank" class="inline-link">M-Links Real Estate</a>.
+        </p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View My Work →</a>
+          <a href="mailto:shahansqb@gmail.com" class="btn-secondary">Let's Collaborate</a>
+        </div>
+      </div>
+
+      <!-- Stats grid -->
+      <div class="hero-stats">
+        <div class="stat-box">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Years building</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">5</span>
+          <span class="stat-label">Production deploys</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">96%</span>
+          <span class="stat-label">FYP accuracy</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">6</span>
+          <span class="stat-label">Cities served</span>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- TICKER -->
+  <div class="ticker-section">
+    <div class="ticker-label">Stack</div>
+    <div class="ticker-fade-left"></div>
+    <div class="ticker-fade-right"></div>
+    <div class="ticker-track" id="ticker">
+      <span class="tech-pill hl">Python</span>
+      <span class="tech-pill hl">YOLOv8</span>
+      <span class="tech-pill">LangChain</span>
+      <span class="tech-pill">FastAPI</span>
+      <span class="tech-pill hl">Computer Vision</span>
+      <span class="tech-pill">RAG</span>
+      <span class="tech-pill">Groq</span>
+      <span class="tech-pill hl">LLaMA 3.3</span>
+      <span class="tech-pill">FAISS</span>
+      <span class="tech-pill">Streamlit</span>
+      <span class="tech-pill">MongoDB</span>
+      <span class="tech-pill hl">AWS EC2</span>
+      <span class="tech-pill">Docker</span>
+      <span class="tech-pill">OpenCV</span>
+      <span class="tech-pill">HuggingFace</span>
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">n8n</span>
+      <span class="tech-pill hl">DeepFace</span>
+      <!-- duplicate for seamless loop -->
+      <span class="tech-pill hl">Python</span>
+      <span class="tech-pill hl">YOLOv8</span>
+      <span class="tech-pill">LangChain</span>
+      <span class="tech-pill">FastAPI</span>
+      <span class="tech-pill hl">Computer Vision</span>
+      <span class="tech-pill">RAG</span>
+      <span class="tech-pill">Groq</span>
+      <span class="tech-pill hl">LLaMA 3.3</span>
+      <span class="tech-pill">FAISS</span>
+      <span class="tech-pill">Streamlit</span>
+      <span class="tech-pill">MongoDB</span>
+      <span class="tech-pill hl">AWS EC2</span>
+      <span class="tech-pill">Docker</span>
+      <span class="tech-pill">OpenCV</span>
+      <span class="tech-pill">HuggingFace</span>
+      <span class="tech-pill">React</span>
+      <span class="tech-pill">n8n</span>
+      <span class="tech-pill hl">DeepFace</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
   <section class="about-modern">
     <div class="about-card">
       <div class="profile-area">
         <div class="img-glow-box">
           <img src="tech_shahan.jpeg" alt="M. Shahan Butt">
-          <div class="status-dot">Active</div>
+          <div class="status-dot">● Active</div>
         </div>
-        <div class="mini-stats-grid">
-          <div class="stat-item"><strong>10+</strong><p>Projects</p></div>
-        </div>
-      </div>
-      <div class="text-area">
-        <h2 class="section-tag">About Me</h2>
-        <p>I am an <strong>AI Engineer</strong> with hands-on experience in Computer Vision, Deep Learning, and LLM-powered applications. I specialize in building end-to-end AI systems — from data preprocessing and model optimization to production-ready deployment using FastAPI and Streamlit. Recently expanded into <strong>LangChain, RAG pipelines, and conversational AI</strong> with persistent memory and document Q&A.</p>
-        <div class="drive-box">
-          <span class="drive-label">What drives me?</span>
-          <p>I'm driven by building end-to-end AI solutions from model development to deployment — that deliver measurable impact in real-world applications.</p>
-        </div>
-        <div class="social-row">
+        <div class="social-row" style="margin-top:20px;">
           <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" class="social-link" target="_blank">LinkedIn</a>
           <a href="https://github.com/Shahanbutt07" class="social-link" target="_blank">GitHub</a>
           <a href="mailto:shahansqb@gmail.com" class="social-link">Email</a>
         </div>
       </div>
+      <div class="text-area">
+        <div class="section-tag-label">About Me</div>
+        <p style="font-size:1.05rem; line-height:1.8; margin-bottom:20px;">
+          AI Engineer with hands-on production experience building <strong>LLM-powered applications</strong>, 
+          <strong>RAG pipelines</strong>, and <strong>real-time Computer Vision systems</strong>.
+          I own the full stack — from data preprocessing and model training to API development and cloud deployment.
+          I don't just build models. I ship products people use.
+        </p>
+        <div class="drive-box">
+          <span class="drive-label">What drives me</span>
+          <p>End-to-end ownership. Taking an AI idea from whiteboard to live production — with real users, real metrics, and real impact.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- WORK WITH ME SECTION -->
+  <!-- WORK WITH ME -->
   <section class="work-with-me-section">
     <div class="work-with-me-card">
       <div class="wwm-icon">🤝</div>
       <h2>Work With Me</h2>
-      <p>Looking for a custom <strong>AI chatbot</strong>, <strong>computer vision system</strong>, or <strong>LLM-powered backend</strong>? I take projects from idea to deployed product — with working demos, clean code, and real results. Let's build something that actually ships.</p>
-      <a href="mailto:shahansqb@gmail.com" class="btn-primary" style="display:inline-block; margin-top:16px;">📩 Start a Project</a>
+      <p>Need a custom <strong>AI chatbot</strong>, <strong>computer vision pipeline</strong>, or <strong>LLM-powered backend</strong>? I take projects from idea to deployed product — clean code, live demos, real results.</p>
+      <a href="mailto:shahansqb@gmail.com" class="btn-primary" style="display:inline-block; margin-top:20px;">Start a Project →</a>
     </div>
   </section>
 
+  <!-- SKILLS -->
   <section id="skills" class="skills-section">
     <div class="center-head">
-      <h2 class="gradient-text">Technical Mastery</h2>
-      <p>Specialization in Machine Learning, Computer Vision, and LLM Engineering</p>
+      <div class="section-eyebrow">Technical Mastery</div>
+      <h2 class="gradient-text">What I Build With</h2>
     </div>
     <div class="skills-container">
       <div class="skill-group">
-        <h3>🧠 AI & Machine Learning</h3>
+        <h3><span class="skill-icon">🧠</span> AI & Machine Learning</h3>
         <div class="tech-tags-grid">
           <span class="tech-tag purple">Computer Vision</span>
           <span class="tech-tag purple">YOLOv8</span>
           <span class="tech-tag purple">Deep Learning</span>
           <span class="tech-tag purple">CNNs</span>
-          <span class="tech-tag purple">Model Optimization</span>
+          <span class="tech-tag purple">DeepFace</span>
           <span class="tech-tag purple">TensorFlow</span>
           <span class="tech-tag purple">Scikit-Learn</span>
           <span class="tech-tag purple">NLP</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3>🤖 LLM & Generative AI</h3>
+        <h3><span class="skill-icon">🤖</span> LLM & Generative AI</h3>
         <div class="tech-tags-grid">
           <span class="tech-tag blue">LangChain</span>
           <span class="tech-tag blue">RAG</span>
@@ -109,19 +188,19 @@
           <span class="tech-tag blue">LLaMA 3.3</span>
           <span class="tech-tag blue">HuggingFace</span>
           <span class="tech-tag blue">Prompt Engineering</span>
-          <span class="tech-tag blue">Vector Databases</span>
+          <span class="tech-tag blue">Agentic AI</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3>💻 Engineering & Deployment</h3>
+        <h3><span class="skill-icon">⚙️</span> Engineering & DevOps</h3>
         <div class="tech-tags-grid">
           <span class="tech-tag green">Python</span>
           <span class="tech-tag green">FastAPI</span>
-          <span class="tech-tag green">Streamlit</span>
+          <span class="tech-tag green">Docker</span>
+          <span class="tech-tag green">AWS EC2</span>
           <span class="tech-tag green">MongoDB</span>
-          <span class="tech-tag green">SQLite</span>
-          <span class="tech-tag green">Git & GitHub</span>
           <span class="tech-tag green">REST APIs</span>
+          <span class="tech-tag green">n8n</span>
           <span class="tech-tag green">OpenCV</span>
         </div>
       </div>
@@ -129,115 +208,106 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience" class="skills-section" style="padding-top: 0;">
+  <section id="experience" class="skills-section" style="padding-top:0;">
     <div class="center-head">
-      <h2 class="gradient-text">Professional Experience</h2>
+      <div class="section-eyebrow">Career</div>
+      <h2 class="gradient-text">Experience</h2>
     </div>
     <div class="skills-container">
-
       <div class="skill-group">
-        <h3>💼 Work History</h3>
+        <h3><span class="skill-icon">💼</span> Work History</h3>
 
         <div class="exp-item">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:6px;">
+          <div class="exp-header">
             <p><strong>AI Engineer & PropTech Developer</strong></p>
-            <span style="background:rgba(16,185,129,0.15); color:#10b981; border:1px solid rgba(16,185,129,0.3); border-radius:20px; padding:2px 10px; font-size:12px; white-space:nowrap;">● Current</span>
+            <span class="exp-badge-current">● Current</span>
           </div>
-          <p class="exp-sub">M-Links Real Estate &nbsp;|&nbsp; Contract · On-site &nbsp;|&nbsp; Nov 2025 – Present</p>
+          <p class="exp-sub">M-Links Real Estate · Contract · On-site · Nov 2025 – Present</p>
           <ul class="exp-list">
-            <li>Built and deployed a full-stack real estate platform (<a href="https://mlinksrealestate.com" target="_blank" style="color:inherit; text-decoration:underline;">mlinksrealestate.com</a>) with AI chatbot, property search, maps, and WhatsApp CRM across 6 DHA cities.</li>
-            <li>Developed an AI-powered lead qualification chatbot handling real-time buyer queries on budget, location, and property type.</li>
-            <li>Analyzing property datasets to identify pricing trends and demand patterns to support investment decisions.</li>
+            <li>Architected and deployed a full-stack AI platform (<a href="https://mlinksrealestate.com" target="_blank" class="exp-link">mlinksrealestate.com</a>) — LLM chatbot, property search, interactive maps, and WhatsApp CRM serving live users across 6 DHA cities, 24/7.</li>
+            <li>Built a conversational AI lead-qualification agent handling real-time buyer queries on budget, location, and property type — reducing manual lead handling and improving conversion pipeline.</li>
+            <li>Analyzed large property datasets to surface pricing trends and demand patterns informing inventory and investment decisions.</li>
           </ul>
         </div>
 
-        <div class="exp-item" style="margin-top:24px;">
+        <div class="exp-item" style="margin-top:28px;">
           <p><strong>AI/ML Developer</strong></p>
-          <p class="exp-sub">Freelance (Fiverr) &nbsp;|&nbsp; Remote &nbsp;|&nbsp; Nov 2025 – Jan 2026</p>
+          <p class="exp-sub">Freelance (Fiverr) · Remote · Nov 2025 – Jan 2026</p>
           <ul class="exp-list">
-            <li>Built LLM-based AI chatbot with RAG, persistent memory, and document Q&A using Python, LangChain, Groq, and Streamlit.</li>
-            <li>Developed AI backend services with FastAPI and REST APIs integrated with relational databases.</li>
+            <li>Delivered a production LLM chatbot with RAG, persistent multi-conversation memory, and document Q&A using LangChain, Groq, FAISS, and Streamlit — live on Streamlit Cloud for a paying client.</li>
+            <li>Built AI backend services with FastAPI and REST APIs integrated with relational databases for stateful conversation management.</li>
           </ul>
         </div>
 
-        <div class="exp-item" style="margin-top:24px;">
+        <div class="exp-item" style="margin-top:28px;">
           <p><strong>Machine Learning Engineer Intern</strong></p>
-          <p class="exp-sub">NKU Technologies &nbsp;|&nbsp; On-site &nbsp;|&nbsp; Jul 2024 – Oct 2024</p>
+          <p class="exp-sub">NKU Technologies · On-site · Jul 2024 – Oct 2024</p>
           <ul class="exp-list">
-            <li>Developed and implemented ML models to enhance operational efficiency.</li>
-            <li>Worked with MongoDB and FastAPI to build scalable vision applications.</li>
-            <li>Optimized computer vision models for object recognition tasks.</li>
+            <li>Built YOLOv8 real-time object detection pipelines with OpenCV — owned dataset prep, model training, validation, and production deployment via FastAPI.</li>
+            <li>Developed scalable Computer Vision inference APIs with FastAPI and MongoDB; optimized models for latency and throughput in live video stream environments.</li>
           </ul>
         </div>
       </div>
 
       <div class="skill-group">
-        <h3>🎓 Education & Leadership</h3>
+        <h3><span class="skill-icon">🎓</span> Education & Leadership</h3>
 
         <div class="exp-item">
-          <p><strong>Teaching Assistant — AI & DSA</strong></p>
-          <p class="exp-sub">University of Management and Technology (UMT)</p>
+          <p><strong>BS Computer Science</strong></p>
+          <p class="exp-sub">University of Management and Technology (UMT), Lahore · Oct 2021 – Sep 2025</p>
           <ul class="exp-list">
-            <li>Assisted in teaching Data Structures and AI to undergraduates.</li>
-            <li>Conducted office hours and graded complex technical assignments.</li>
+            <li>CGPA: 3.35 / 4.00</li>
+            <li><strong>Teaching Assistant — AI & Data Structures:</strong> Assisted in teaching AI and DSA to undergraduates; conducted office hours and graded complex technical assignments.</li>
           </ul>
         </div>
 
-        <div class="exp-item" style="margin-top:24px;">
-          <p><strong>BS in Computer Science</strong></p>
-          <p class="exp-sub">UMT, Lahore &nbsp;|&nbsp; CGPA: 3.35 &nbsp;|&nbsp; Oct 2021 – Sep 2025</p>
-        </div>
-
-        <div class="exp-item" style="margin-top:24px;">
-          <p><strong>What I'm Currently Working On</strong></p>
+        <div class="exp-item" style="margin-top:28px;">
+          <p><strong>Currently Working On</strong></p>
           <p class="exp-sub">Ongoing</p>
           <ul class="exp-list">
-            <li>Deepening expertise in LLM fine-tuning, agentic AI workflows, and MLOps pipelines.</li>
-            <li>Exploring computer vision applications in PropTech and smart city solutions.</li>
-            <li>Contributing to open-source AI projects on GitHub.</li>
+            <li>LLM fine-tuning, agentic AI workflows, and MLOps pipelines.</li>
+            <li>Computer vision applications in PropTech and smart city systems.</li>
+            <li>Open-source AI contributions on GitHub.</li>
           </ul>
         </div>
       </div>
-
     </div>
   </section>
 
+  <!-- PROJECTS -->
   <section id="projects" class="projects-section">
     <div class="center-head">
-      <h2 class="gradient-text">Featured GitHub Projects</h2>
+      <div class="section-eyebrow">Selected Work</div>
+      <h2 class="gradient-text">Projects</h2>
     </div>
     <div class="project-grid-modern">
 
-      <!-- FIX 2: MLinks moved to #1 — live deployed business = strongest proof -->
+      <!-- 1. MLinks — live business, strongest proof -->
       <div class="project-card-modern featured-card">
         <div class="project-img-wrapper">
           <img src="m_links_project.png" alt="MLinks Real Estate">
-          <span class="img-tag" style="background:rgba(59,130,246,0.8);">🌐 Live Business</span>
+          <span class="img-tag tag-live">🌐 Live Business</span>
         </div>
         <div class="project-content">
           <h3>MLinks Real Estate Platform</h3>
-          <!-- FIX 3: Results-driven description -->
-          <p>Full-stack PropTech platform serving active property buyers across 6 DHA cities — AI chatbot handles lead qualification 24/7 without human intervention. Live in production with real users.</p>
+          <p>Full-stack PropTech platform with AI lead-qualification chatbot — serving live property buyers across 6 DHA cities, 24/7 with no human intervention. Real users. Real production.</p>
           <div class="tag-row">
             <span class="p-tag">PHP</span><span class="p-tag">MySQL</span>
             <span class="p-tag">JavaScript</span><span class="p-tag">AI Chatbot</span><span class="p-tag">WhatsApp CRM</span>
           </div>
-          <div style="display:flex; gap:15px; margin-top:10px;">
-            <a href="https://mlinksrealestate.com/" class="view-link" target="_blank" style="color:var(--accent-g);">🌐 Live Site ↗</a>
-          </div>
+          <a href="https://mlinksrealestate.com/" class="view-link" target="_blank">🌐 Live Site ↗</a>
         </div>
       </div>
 
-      <!-- FIX 2: RAG Chatbot moved to #2 — live demo -->
+      <!-- 2. RAG Chatbot — live demo -->
       <div class="project-card-modern featured-card">
         <div class="project-img-wrapper">
           <img src="ai_chatbot.png" alt="AI Chatbot">
-          <span class="img-tag" style="background: rgba(16,185,129,0.8);">🔥 Live Demo</span>
+          <span class="img-tag tag-demo">🔥 Live Demo</span>
         </div>
         <div class="project-content">
           <h3>AI Assistant — LangChain + RAG</h3>
-          <!-- FIX 3: Results-driven description -->
-          <p>Production chatbot with persistent memory and document Q&A — built for a real client, live on Streamlit. Features multi-conversation management, streaming responses, and persona switching.</p>
+          <p>Production chatbot built for a real client. Persistent multi-conversation memory, document Q&A, streaming responses, and persona switching. Live on Streamlit Cloud.</p>
           <div class="tag-row">
             <span class="p-tag">LangChain</span><span class="p-tag">Groq</span><span class="p-tag">RAG</span>
             <span class="p-tag">FAISS</span><span class="p-tag">SQLite</span><span class="p-tag">Streamlit</span>
@@ -249,16 +319,31 @@
         </div>
       </div>
 
-      <!-- FIX 2: Attendance System moved to #3 — has accuracy numbers -->
+      <!-- 3. AI Email Automation — NEW from resume, wasn't on site -->
+      <div class="project-card-modern featured-card">
+        <div class="project-img-wrapper">
+          <img src="ai_chatbot.png" alt="AI Email Automation">
+          <span class="img-tag tag-live">⚡ Live Pipeline</span>
+        </div>
+        <div class="project-content">
+          <h3>AI Email Automation Pipeline</h3>
+          <p>Production n8n workflow triggered on incoming Gmail — Groq AI classifies emails into 6 categories, auto-generates personalized draft replies, flags low-confidence emails for review, archives newsletters, deletes spam, pings Slack, and logs all activity to Google Sheets with retry/error handling.</p>
+          <div class="tag-row">
+            <span class="p-tag">n8n</span><span class="p-tag">Groq</span><span class="p-tag">Gmail API</span>
+            <span class="p-tag">Slack</span><span class="p-tag">Google Sheets</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. FYP Attendance — numbers -->
       <div class="project-card-modern">
         <div class="project-img-wrapper">
           <img src="AI-Based-Attendance-System-scaled.jpeg" alt="AI Attendance">
-          <span class="img-tag" style="background:rgba(139,92,246,0.8);">🎓 FYP — UMT 2025</span>
+          <span class="img-tag tag-fyp">🎓 FYP — UMT 2025</span>
         </div>
         <div class="project-content">
           <h3>AI-Powered Attendance System</h3>
-          <!-- FIX 3: Results-driven description -->
-          <p>96% facial recognition accuracy — deployed on AWS EC2 with GPU support, handling 50+ students in real-time. React dashboard with automated lighting alerts. Final Year Project at UMT 2025.</p>
+          <p>96% facial recognition accuracy — deployed on AWS EC2 with GPU support, handling 50+ students in real-time. React dashboard with automated lighting alerts.</p>
           <div class="tag-row">
             <span class="p-tag">YOLOv8</span><span class="p-tag">DeepFace</span><span class="p-tag">FastAPI</span>
             <span class="p-tag">React</span><span class="p-tag">Docker</span><span class="p-tag">AWS EC2</span>
@@ -267,29 +352,31 @@
         </div>
       </div>
 
+      <!-- 5. Hygiene Compliance — keep, has accuracy -->
       <div class="project-card-modern">
         <div class="project-img-wrapper">
           <img src="hygiene.jpeg" alt="Hygiene Detection">
           <span class="img-tag">Computer Vision</span>
         </div>
         <div class="project-content">
-          <h3>Hygiene Compliance</h3>
-          <p>Real-time monitoring system for workplace safety using custom YOLOv8 models.</p>
+          <h3>Hygiene Compliance Monitor</h3>
+          <p>Real-time workplace safety monitoring using custom YOLOv8 — 94% detection accuracy. Identifies hygiene violations from live camera feeds with Streamlit dashboard.</p>
           <div class="tag-row">
-            <span class="p-tag">Streamlit</span><span class="p-tag">YOLOv8</span><span class="p-tag">OpenCV</span>
+            <span class="p-tag">YOLOv8</span><span class="p-tag">OpenCV</span><span class="p-tag">Streamlit</span>
           </div>
           <a href="https://github.com/Shahanbutt07/hygiene-compliance-detection" class="view-link" target="_blank">View Repository ↗</a>
         </div>
       </div>
 
+      <!-- 6. Data Preprocessing Pipeline — keep, shows ML fundamentals -->
       <div class="project-card-modern">
         <div class="project-img-wrapper">
           <img src="preprocessing_pipeline.png" alt="Data Pipeline">
           <span class="img-tag">Engineering</span>
         </div>
         <div class="project-content">
-          <h3>Data Preprocessing Pipeline</h3>
-          <p>End-to-end data engineering and EDA pipeline for robust machine learning workflows.</p>
+          <h3>ML Data Preprocessing Pipeline</h3>
+          <p>End-to-end data engineering and EDA pipeline built to handle messy real-world datasets — covers missing values, feature engineering, outlier detection, and automated reporting.</p>
           <div class="tag-row">
             <span class="p-tag">Pandas</span><span class="p-tag">EDA</span><span class="p-tag">Python</span>
           </div>
@@ -297,77 +384,13 @@
         </div>
       </div>
 
-      <div class="project-card-modern">
-        <div class="project-img-wrapper">
-          <img src="fraud_detect.jpg" alt="Fraud Detection">
-          <span class="img-tag">ML Modeling</span>
-        </div>
-        <div class="project-content">
-          <h3>Credit Card Fraud Detection</h3>
-          <p>Logistic Regression model handling imbalanced datasets to identify fraudulent transactions.</p>
-          <div class="tag-row">
-            <span class="p-tag">Scikit-Learn</span><span class="p-tag">ML</span>
-          </div>
-          <a href="https://github.com/Shahanbutt07/credit-card-fraud-detection" class="view-link" target="_blank">View Repository ↗</a>
-        </div>
-      </div>
-
-      <div class="project-card-modern">
-        <div class="project-img-wrapper">
-          <img src="purchase_pred.jpeg" alt="Purchase Prediction">
-          <span class="img-tag">Web App</span>
-        </div>
-        <div class="project-content">
-          <h3>Purchase Prediction App</h3>
-          <p>Streamlit application using SVM to predict user behavior and purchase likelihood.</p>
-          <div class="tag-row">
-            <span class="p-tag">SVM</span><span class="p-tag">Streamlit</span>
-          </div>
-          <a href="https://github.com/Shahanbutt07/svm-prediction-app" class="view-link" target="_blank">View Repository ↗</a>
-        </div>
-      </div>
-
-      <div class="project-card-modern">
-        <div class="project-img-wrapper">
-          <img src="car_rent.jpg" alt="Car Rental">
-          <span class="img-tag">Engineering</span>
-        </div>
-        <div class="project-content">
-          <h3>Car Rental System</h3>
-          <p>Optimized rental management system utilizing advanced Data Structures and C++.</p>
-          <div class="tag-row"><span class="p-tag">DSA</span><span class="p-tag">C++</span></div>
-        </div>
-      </div>
-
-      <div class="project-card-modern">
-        <div class="project-img-wrapper">
-          <img src="sentiment.jpg" alt="Sentiment Analysis">
-          <span class="img-tag">NLP</span>
-        </div>
-        <div class="project-content">
-          <h3>Sentiment Analysis</h3>
-          <p>Natural Language Processing project for automated textual emotion classification.</p>
-          <div class="tag-row"><span class="p-tag">NLP</span><span class="p-tag">Python</span></div>
-        </div>
-      </div>
-
-      <div class="project-card-modern">
-        <div class="project-img-wrapper">
-          <img src="virtual_assistant.jpg" alt="Virtual Assistant">
-          <span class="img-tag">Automation</span>
-        </div>
-        <div class="project-content">
-          <h3>Virtual Assistant</h3>
-          <p>Python-based assistant for automated desktop tasks and system control.</p>
-          <div class="tag-row"><span class="p-tag">Automation</span><span class="p-tag">Python</span></div>
-        </div>
-      </div>
-
     </div>
   </section>
 
+  <!-- CERTIFICATIONS -->
   <section id="certifications" class="cert-section">
     <div class="center-head">
+      <div class="section-eyebrow">Credentials</div>
       <h2 class="gradient-text">Certifications</h2>
     </div>
     <div class="cert-grid">
@@ -378,27 +401,31 @@
         </div>
         <h3>Data Science with Python</h3>
         <p class="cert-org">Great Learning</p>
-        <p class="cert-desc">Advanced certification focusing on Data Mining, predictive modeling, and statistical analysis for AI.</p>
+        <p class="cert-desc">Data mining, predictive modeling, and statistical analysis for AI/ML applications.</p>
         <div class="tag-row">
-          <span class="p-tag" style="background:var(--accent-p); color:white;">Python</span>
-          <span class="p-tag" style="background:var(--accent-p); color:white;">Data Science</span>
+          <span class="p-tag" style="background:rgba(139,92,246,0.15);color:#c4b5fd;border:1px solid rgba(139,92,246,0.3);">Python</span>
+          <span class="p-tag" style="background:rgba(139,92,246,0.15);color:#c4b5fd;border:1px solid rgba(139,92,246,0.3);">Data Science</span>
         </div>
       </div>
     </div>
     <div class="commitment-box">
-      <h3>Committed to AI Excellence</h3>
-      <p>Continuously evolving with the state-of-the-art in deep learning, LLMs, and real-time vision systems.</p>
+      <h3>Continuously Learning</h3>
+      <p>Deepening expertise in LLM fine-tuning, agentic AI workflows, and MLOps. Active on GitHub and building in public.</p>
     </div>
   </section>
 
+  <!-- FOOTER / CONTACT -->
   <footer id="contact" class="footer">
-    <h2 class="gradient-text">Get In Touch</h2>
-    <!-- FIX 5: Removed "Lahore, Pakistan" — replaced with remote-friendly signal -->
-    <p>Remote — Available Worldwide</p>
-    <p><a href="mailto:shahansqb@gmail.com">shahansqb@gmail.com</a></p>
-    <div class="social-row" style="justify-content:center; margin-top:20px;">
-      <a href="https://github.com/Shahanbutt07" class="social-link" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" class="social-link" target="_blank">LinkedIn</a>
+    <div class="footer-inner">
+      <h2 class="gradient-text">Let's Build Together</h2>
+      <p style="color:var(--text-dim); margin:12px 0 4px;">Remote — Available Worldwide</p>
+      <p><a href="mailto:shahansqb@gmail.com" class="footer-email">shahansqb@gmail.com</a></p>
+      <div class="social-row" style="justify-content:center; margin-top:24px;">
+        <a href="https://github.com/Shahanbutt07" class="social-link" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" class="social-link" target="_blank">LinkedIn</a>
+        <a href="mailto:shahansqb@gmail.com" class="social-link">Email</a>
+      </div>
+      <p class="footer-credit">Built by Shahan Butt · 2025</p>
     </div>
   </footer>
 
