@@ -1,543 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M. Shahan Butt | AI/ML & Computer Vision Engineer</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Shahan Butt — AI Engineer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <div class="bg-grid"></div>
-  <div class="bg-glow g1"></div>
-  <div class="bg-glow g2"></div>
-  <div class="bg-glow g3"></div>
+  <div id="cursor-dot"></div>
+  <div id="cursor-glow"></div>
+  <canvas id="bg-canvas"></canvas>
 
   <!-- NAV -->
-  <nav class="nav">
-    <div class="nav-logo">
-      <span class="logo-bracket">&lt;</span>Shahan<span class="logo-dot">.</span><span class="logo-bracket">/&gt;</span>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-bracket">[</span>MSB<span class="nav-bracket">]</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#about"      class="nav-link">About</a>
+        <a href="#skills"     class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects"   class="nav-link">Projects</a>
+        <a href="#contact"    class="nav-link">Contact</a>
+      </nav>
+      <a href="mailto:shahansqb@gmail.com" class="nav-hire">
+        <span class="hire-dot"></span>Available — Hire Me
+      </a>
     </div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <a href="mailto:shahansqb@gmail.com" class="nav-cta">Hire Me ↗</a>
-  </nav>
+  </header>
 
-  <!-- ══════════════════════════════════
-       HERO
-  ══════════════════════════════════ -->
-  <section class="hero-outer" id="about">
-  <div class="hero">
-    <div class="hero-left">
-      <div class="hero-badge">
-        <span class="badge-pulse"></span>
-        Available for full-time &amp; contract
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-line"></span>
+          <span>AI Engineer · LLMs · Computer Vision</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="ht-row">Muhammad</span>
+          <span class="ht-row">Shahan</span>
+          <span class="ht-row ht-stroke">Butt.</span>
+        </h1>
+        <p class="hero-sub">
+          I build AI that ships to production — not just Jupyter notebooks.
+          LLM chatbots, RAG pipelines &amp; Computer Vision deployed for real clients,
+          at real scale.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-cta">See My Work <span class="btn-arrow">→</span></a>
+          <a href="mailto:shahansqb@gmail.com" class="btn-ghost">Let's Talk</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hstat"><div class="hstat-val">1+</div><div class="hstat-key">Years in Production</div></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><div class="hstat-val">5</div><div class="hstat-key">Live Deployments</div></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><div class="hstat-val">96%</div><div class="hstat-key">FYP Accuracy</div></div>
+          <div class="hstat-div"></div>
+          <div class="hstat"><div class="hstat-val">6</div><div class="hstat-key">Cities Served</div></div>
+        </div>
       </div>
-      <h1 class="hero-h1">
-        I build<br>
-        <span class="hero-accent">AI</span>
-        <span class="hero-stroke">that ships.</span>
-      </h1>
-      <p class="hero-p">
-        LLM chatbots · RAG pipelines · Computer Vision — deployed in production, not just demos.
-        Recently built PropTech AI at
-        <a href="https://mlinksrealestate.com" target="_blank" class="hero-link">M-Links Real Estate ↗</a>
-      </p>
-      <div class="hero-btns">
-        <a href="#projects" class="btn-main">View My Work</a>
-        <a href="mailto:shahansqb@gmail.com" class="btn-ghost">Let's Talk</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hstat"><strong>3+</strong><span>Years building</span></div>
-        <div class="hstat-sep"></div>
-        <div class="hstat"><strong>5</strong><span>Production deploys</span></div>
-        <div class="hstat-sep"></div>
-        <div class="hstat"><strong>96%</strong><span>FYP accuracy</span></div>
-        <div class="hstat-sep"></div>
-        <div class="hstat"><strong>6</strong><span>Cities served</span></div>
+
+      <div class="hero-right">
+        <div class="photo-frame">
+          <div class="photo-border"></div>
+          <img src="tech_shahan.jpeg" alt="Muhammad Shahan Butt" class="photo-img" />
+          <div class="photo-overlay">
+            <div class="photo-tag tag-tl"><span class="tag-pulse"></span>Open to Work</div>
+            <div class="photo-tag tag-br">Lahore, PK</div>
+          </div>
+          <div class="float-chip fc-1">AI Engineer</div>
+          <div class="float-chip fc-2">Computer Vision</div>
+          <div class="float-chip fc-3">LLM / RAG</div>
+        </div>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="photo-wrap">
-        <img src="tech_shahan.jpeg" alt="M. Shahan Butt" class="hero-img">
-        <div class="photo-ring"></div>
-        <div class="photo-badge-1"><span class="pb-dot"></span>Open to work</div>
-        <div class="photo-badge-2">AI Engineer</div>
-        <div class="photo-badge-3">Computer Vision</div>
-      </div>
+
+    <div class="scroll-cue">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ti">LangChain</span><span class="td">✦</span>
+      <span class="ti">RAG Pipelines</span><span class="td">✦</span>
+      <span class="ti">YOLOv8</span><span class="td">✦</span>
+      <span class="ti">FastAPI</span><span class="td">✦</span>
+      <span class="ti">AWS EC2</span><span class="td">✦</span>
+      <span class="ti">LLaMA 3.3</span><span class="td">✦</span>
+      <span class="ti">Computer Vision</span><span class="td">✦</span>
+      <span class="ti">Docker</span><span class="td">✦</span>
+      <span class="ti">DeepFace</span><span class="td">✦</span>
+      <span class="ti">Groq</span><span class="td">✦</span>
+      <span class="ti">TensorFlow</span><span class="td">✦</span>
+      <span class="ti">Agentic AI</span><span class="td">✦</span>
+      <span class="ti">LangChain</span><span class="td">✦</span>
+      <span class="ti">RAG Pipelines</span><span class="td">✦</span>
+      <span class="ti">YOLOv8</span><span class="td">✦</span>
+      <span class="ti">FastAPI</span><span class="td">✦</span>
+      <span class="ti">AWS EC2</span><span class="td">✦</span>
+      <span class="ti">LLaMA 3.3</span><span class="td">✦</span>
+      <span class="ti">Computer Vision</span><span class="td">✦</span>
+      <span class="ti">Docker</span><span class="td">✦</span>
+      <span class="ti">DeepFace</span><span class="td">✦</span>
+      <span class="ti">Groq</span><span class="td">✦</span>
+      <span class="ti">TensorFlow</span><span class="td">✦</span>
+      <span class="ti">Agentic AI</span><span class="td">✦</span>
     </div>
   </div>
-  </section>
 
-  <!-- ══════════════════════════════════
-       ICON MARQUEE (2 rows)
-  ══════════════════════════════════ -->
-  <section class="marquee-section" id="skills">
-    <div class="marquee-header">
-      <span class="marquee-label">Tech Stack</span>
-      <div class="marquee-line"></div>
-    </div>
-
-    <!-- Row 1 → -->
-    <div class="marquee-wrap">
-      <div class="marquee-track mfwd">
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">
-          <span>Python</span>
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left reveal">
+          <div class="section-eyebrow">About Me</div>
+          <h2 class="section-title">I ship <em>real</em><br/>AI products.</h2>
+          <p class="about-p">
+            CS graduate from University of Management &amp; Technology, Lahore — specialising in AI &amp; Computer Vision.
+            Recipient of the <strong>Best Academic Result Award</strong> in both 2023 &amp; 2025.
+          </p>
+          <p class="about-p">
+            From interning at NKU Technologies to building a full PropTech AI platform live across 6 cities —
+            my track record is deploying things that actually work, at scale, 24/7 with zero human intervention.
+          </p>
+          <div class="about-links">
+            <a href="mailto:shahansqb@gmail.com" class="alink"><span>✉</span> shahansqb@gmail.com</a>
+            <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" target="_blank" class="alink"><span>in</span> LinkedIn</a>
+            <a href="https://github.com/Shahanbutt07" target="_blank" class="alink"><span>⌥</span> GitHub</a>
+          </div>
         </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="">
-          <span>TensorFlow</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="">
-          <span>FastAPI</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">
-          <span>Docker</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">
-          <span>React</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="">
-          <span>MongoDB</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="">
-          <span>AWS EC2</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="">
-          <span>OpenCV</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" style="filter:invert(0.9)">
-          <span>GitHub</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">
-          <span>MySQL</span>
-        </div>
-        <!-- duplicate for seamless loop -->
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="">
-          <span>Python</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="">
-          <span>TensorFlow</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="">
-          <span>FastAPI</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="">
-          <span>Docker</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">
-          <span>React</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="">
-          <span>MongoDB</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="">
-          <span>AWS EC2</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="">
-          <span>OpenCV</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" style="filter:invert(0.9)">
-          <span>GitHub</span>
-        </div>
-        <div class="icon-pill">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">
-          <span>MySQL</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Row 2 ← -->
-    <div class="marquee-wrap" style="margin-top:14px;">
-      <div class="marquee-track mrev">
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="">
-          <span>Pandas</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">
-          <span>JavaScript</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">
-          <span>HTML5</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">
-          <span>CSS3</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">
-          <span>Git</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="">
-          <span>PyTorch</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="">
-          <span>Linux</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="">
-          <span>SQLite</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">
-          <span>HuggingFace</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://streamlit.io/images/brand/streamlit-mark-color.svg" alt="">
-          <span>Streamlit</span>
-        </div>
-        <!-- duplicate -->
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="">
-          <span>Pandas</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="">
-          <span>JavaScript</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">
-          <span>HTML5</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">
-          <span>CSS3</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="">
-          <span>Git</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="">
-          <span>PyTorch</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="">
-          <span>Linux</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="">
-          <span>SQLite</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">
-          <span>HuggingFace</span>
-        </div>
-        <div class="icon-pill ip2">
-          <img src="https://streamlit.io/images/brand/streamlit-mark-color.svg" alt="">
-          <span>Streamlit</span>
+        <div class="about-right reveal reveal-d2">
+          <div class="metrics-grid">
+            <div class="mcard mc-accent">
+              <div class="mc-num">96%</div>
+              <div class="mc-lbl">Facial Recognition Accuracy (FYP)</div>
+            </div>
+            <div class="mcard">
+              <div class="mc-num">50+</div>
+              <div class="mc-lbl">Students processed real-time</div>
+            </div>
+            <div class="mcard">
+              <div class="mc-num">3.35</div>
+              <div class="mc-lbl">CGPA — 2× Academic Award</div>
+            </div>
+            <div class="mcard mc-dark">
+              <div class="mc-num">24/7</div>
+              <div class="mc-lbl">Zero human intervention on live system</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       SKILLS CATEGORIES
-  ══════════════════════════════════ -->
-  <section class="skills-section">
-    <div class="section-head">
-      <div class="eyebrow">What I Know</div>
-      <h2>Technical <span class="grad">Mastery</span></h2>
+  <!-- SKILLS -->
+  <section class="skills-section" id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Expertise</div>
+        <h2 class="section-title">Technical<br/>Mastery</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card sk-1 reveal">
+          <div class="sk-num">01</div>
+          <div class="sk-icon-box">🧠</div>
+          <h3>AI &amp; Machine Learning</h3>
+          <p>Production-grade deep learning — from dataset curation to live deployment on real infrastructure.</p>
+          <div class="sk-tags">
+            <span>Python</span><span>TensorFlow</span><span>CNNs</span><span>YOLOv8</span>
+            <span>DeepFace</span><span>scikit-learn</span><span>NumPy</span><span>Pandas</span><span>PyTorch</span><span>NLP</span>
+          </div>
+        </div>
+        <div class="skill-card sk-2 reveal reveal-d2">
+          <div class="sk-num">02</div>
+          <div class="sk-icon-box">🤖</div>
+          <h3>LLMs &amp; Generative AI</h3>
+          <p>Intelligent agents and retrieval systems that paying clients actually deploy and use every day.</p>
+          <div class="sk-tags">
+            <span>LangChain</span><span>RAG</span><span>FAISS</span><span>Groq</span>
+            <span>LLaMA 3.3</span><span>HuggingFace</span><span>Prompt Engineering</span><span>Agentic AI</span><span>spaCy</span>
+          </div>
+        </div>
+        <div class="skill-card sk-3 reveal reveal-d3">
+          <div class="sk-num">03</div>
+          <div class="sk-icon-box">⚙️</div>
+          <h3>Engineering &amp; DevOps</h3>
+          <p>Full ownership from API to cloud — everything deployed, not just coded and left in a notebook.</p>
+          <div class="sk-tags">
+            <span>FastAPI</span><span>Docker</span><span>AWS EC2</span><span>MongoDB</span>
+            <span>MySQL</span><span>SQLite</span><span>REST APIs</span><span>n8n</span><span>Streamlit</span><span>Git</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="sc-icon">🧠</div>
-        <h3>AI & Machine Learning</h3>
-        <div class="sc-tags">
-          <span>Computer Vision</span><span>YOLOv8</span><span>Deep Learning</span>
-          <span>CNNs</span><span>DeepFace</span><span>TensorFlow</span>
-          <span>Scikit-Learn</span><span>NLP</span>
-        </div>
+
+    <!-- Marquee rows -->
+    <div class="mq-wrap">
+      <div class="mq-track mq-fwd">
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/><span>Python</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/><span>TensorFlow</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"/><span>FastAPI</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/><span>Docker</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/><span>React</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"/><span>MongoDB</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"/><span>AWS EC2</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"/><span>OpenCV</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/><span>MySQL</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"/><span>PyTorch</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/><span>Python</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/><span>TensorFlow</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"/><span>FastAPI</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/><span>Docker</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/><span>React</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"/><span>MongoDB</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"/><span>AWS EC2</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg"/><span>OpenCV</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/><span>MySQL</span></div>
+        <div class="mpill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"/><span>PyTorch</span></div>
       </div>
-      <div class="skill-card">
-        <div class="sc-icon">🤖</div>
-        <h3>LLM & Generative AI</h3>
-        <div class="sc-tags">
-          <span>LangChain</span><span>RAG</span><span>FAISS</span>
-          <span>Groq</span><span>LLaMA 3.3</span><span>HuggingFace</span>
-          <span>Prompt Engineering</span><span>Agentic AI</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="sc-icon">⚙️</div>
-        <h3>Engineering & DevOps</h3>
-        <div class="sc-tags">
-          <span>Python</span><span>FastAPI</span><span>Docker</span>
-          <span>AWS EC2</span><span>MongoDB</span><span>REST APIs</span>
-          <span>n8n</span><span>OpenCV</span>
-        </div>
+    </div>
+    <div class="mq-wrap" style="margin-top:12px">
+      <div class="mq-track mq-rev">
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"/><span>Pandas</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/><span>JavaScript</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"/><span>Linux</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><span>Git</span></div>
+        <div class="mpill mp2"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"/><span>HuggingFace</span></div>
+        <div class="mpill mp2"><img src="https://streamlit.io/images/brand/streamlit-mark-color.svg"/><span>Streamlit</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"/><span>SQLite</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/><span>HTML5</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><span>CSS3</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"/><span>Pandas</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/><span>JavaScript</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"/><span>Linux</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><span>Git</span></div>
+        <div class="mpill mp2"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"/><span>HuggingFace</span></div>
+        <div class="mpill mp2"><img src="https://streamlit.io/images/brand/streamlit-mark-color.svg"/><span>Streamlit</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"/><span>SQLite</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"/><span>HTML5</span></div>
+        <div class="mpill mp2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"/><span>CSS3</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       EXPERIENCE — ZIGZAG TIMELINE
-  ══════════════════════════════════ -->
+  <!-- EXPERIENCE -->
   <section class="exp-section" id="experience">
-    <div class="section-head">
-      <div class="eyebrow">Career</div>
-      <h2>Where I've <span class="grad">Worked</span></h2>
-      <p class="section-sub">From internship to building live platforms serving real users.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="tl-spine"></div>
-
-      <!-- 1 — LEFT -->
-      <div class="tl-row tl-left">
-        <div class="tl-card">
-          <div class="tl-meta">
-            <span class="tl-date">Nov 2025 — Apr 2026</span>
-            <span class="tl-badge-done">✓ Completed</span>
-          </div>
-          <div class="tl-company">M-Links Real Estate</div>
-          <div class="tl-role">AI Engineer &amp; PropTech Developer · Contract</div>
-          <p class="tl-desc">Built and deployed the full <a href="https://mlinksrealestate.com" target="_blank" class="tl-link" style="display:inline;">mlinksrealestate.com ↗</a> platform from scratch — property search, interactive maps, WhatsApp CRM across 6 DHA cities, and an LLM-powered lead-qualification chatbot. Also delivered automation workflows (n8n) for internal operations wherever needed.</p>
-          <div class="tl-tags"><span>PHP</span><span>MySQL</span><span>LangChain</span><span>n8n</span><span>WhatsApp CRM</span><span>AI Chatbot</span></div>
-        </div>
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"><div class="tl-dot-core"></div></div>
-        </div>
-        <div class="tl-spacer"></div>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Career</div>
+        <h2 class="section-title">Where I've<br/>Shipped</h2>
+        <p class="section-sub">From intern to building live platforms serving real users across 6 cities.</p>
       </div>
 
-      <!-- 2 — RIGHT -->
-      <div class="tl-row tl-right">
-        <div class="tl-spacer"></div>
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"><div class="tl-dot-core"></div></div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-meta">
-            <span class="tl-date">Nov 2025 — Jan 2026</span>
+      <div class="timeline">
+        <div class="tl-spine"></div>
+
+        <div class="tl-row tl-left reveal">
+          <div class="tl-card">
+            <div class="tl-top">
+              <span class="tl-date">Nov 2025 — Apr 2026</span>
+              <span class="tl-badge bdg-done">✓ Completed</span>
+            </div>
+            <div class="tl-co">M-Links Real Estate</div>
+            <div class="tl-role"><span class="role-dot"></span>AI Engineer &amp; PropTech Developer · Contract</div>
+            <p class="tl-desc">Architected and deployed the full mlinksrealestate.com platform — LLM chatbot, smart property search, WhatsApp CRM across 6 DHA cities. End-to-end data pipelines analysing large property datasets. 24/7 zero human intervention.</p>
+            <div class="tl-tags"><span>PHP</span><span>MySQL</span><span>LangChain</span><span>n8n</span><span>WhatsApp CRM</span><span>AI Chatbot</span></div>
+            <a href="https://mlinksrealestate.com" target="_blank" class="tl-link">Visit Site ↗</a>
           </div>
-          <div class="tl-company">Fiverr — Freelance</div>
-          <div class="tl-role">AI/ML Developer</div>
-          <p class="tl-desc">Delivered a production LLM chatbot with RAG, persistent memory, and document Q&amp;A for a paying client. Live on Streamlit Cloud. Built FastAPI backends with relational DB integration.</p>
-          <div class="tl-tags"><span>LangChain</span><span>Groq</span><span>FAISS</span><span>Streamlit</span></div>
+          <div class="tl-dot-w"><div class="tl-dot"><div class="tl-core"></div></div></div>
+          <div class="tl-sp"></div>
+        </div>
+
+        <div class="tl-row tl-right reveal reveal-d1">
+          <div class="tl-sp"></div>
+          <div class="tl-dot-w"><div class="tl-dot"><div class="tl-core"></div></div></div>
+          <div class="tl-card">
+            <div class="tl-top">
+              <span class="tl-date">Nov 2025 — Jan 2026</span>
+              <span class="tl-badge bdg-done">✓ Completed</span>
+            </div>
+            <div class="tl-co">Fiverr — Freelance</div>
+            <div class="tl-role"><span class="role-dot"></span>AI/ML Developer</div>
+            <p class="tl-desc">Delivered a production RAG chatbot with persistent memory and document Q&amp;A using LangChain, Groq, and FAISS — live for a paying client on Streamlit Cloud. Built FastAPI backends with relational DB integration.</p>
+            <div class="tl-tags"><span>LangChain</span><span>Groq</span><span>FAISS</span><span>Streamlit</span></div>
+            <a href="https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/" target="_blank" class="tl-link">Live Demo ↗</a>
+          </div>
+        </div>
+
+        <div class="tl-row tl-left reveal reveal-d2">
+          <div class="tl-card">
+            <div class="tl-top">
+              <span class="tl-date">Jul 2024 — Oct 2024</span>
+            </div>
+            <div class="tl-co">NKU Technologies</div>
+            <div class="tl-role"><span class="role-dot"></span>Machine Learning Engineer Intern</div>
+            <p class="tl-desc">Built YOLOv8 real-time object detection pipelines with OpenCV — owned full ML lifecycle: data prep, training, evaluation, and deployment via FastAPI. Optimised inference APIs for low latency in live video streams.</p>
+            <div class="tl-tags"><span>YOLOv8</span><span>OpenCV</span><span>FastAPI</span><span>MongoDB</span></div>
+          </div>
+          <div class="tl-dot-w"><div class="tl-dot"><div class="tl-core"></div></div></div>
+          <div class="tl-sp"></div>
+        </div>
+
+        <div class="tl-row tl-right reveal reveal-d3">
+          <div class="tl-sp"></div>
+          <div class="tl-dot-w"><div class="tl-dot"><div class="tl-core"></div></div></div>
+          <div class="tl-card">
+            <div class="tl-top">
+              <span class="tl-date">Oct 2021 — Sep 2025</span>
+              <span class="tl-badge bdg-edu">Education</span>
+            </div>
+            <div class="tl-co">University of Management &amp; Technology</div>
+            <div class="tl-role"><span class="role-dot"></span>BS Computer Science · CGPA 3.35 · Teaching Assistant</div>
+            <p class="tl-desc">Graduated with specialisation in AI &amp; Computer Vision. Teaching Assistant for AI and Data Structures. Recipient of Best Academic Result Award (2023 &amp; 2025) — highest academic honour.</p>
+            <div class="tl-tags"><span>AI</span><span>DSA</span><span>Python</span><span>Teaching</span></div>
+          </div>
         </div>
       </div>
-
-      <!-- 3 — LEFT -->
-      <div class="tl-row tl-left">
-        <div class="tl-card">
-          <div class="tl-meta">
-            <span class="tl-date">Jul 2024 — Oct 2024</span>
-          </div>
-          <div class="tl-company">NKU Technologies</div>
-          <div class="tl-role">Machine Learning Engineer Intern</div>
-          <p class="tl-desc">Built YOLOv8 real-time object detection pipelines with OpenCV — owned dataset prep, training, validation, and production deployment via FastAPI. Optimised models for latency in live video streams.</p>
-          <div class="tl-tags"><span>YOLOv8</span><span>OpenCV</span><span>FastAPI</span><span>MongoDB</span></div>
-        </div>
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"><div class="tl-dot-core"></div></div>
-        </div>
-        <div class="tl-spacer"></div>
-      </div>
-
-      <!-- 4 — RIGHT -->
-      <div class="tl-row tl-right">
-        <div class="tl-spacer"></div>
-        <div class="tl-dot-wrap">
-          <div class="tl-dot"><div class="tl-dot-core"></div></div>
-        </div>
-        <div class="tl-card">
-          <div class="tl-meta">
-            <span class="tl-date">Oct 2021 — Sep 2025</span>
-          </div>
-          <div class="tl-company">University of Management &amp; Technology</div>
-          <div class="tl-role">BS Computer Science · CGPA 3.35 · Teaching Assistant</div>
-          <p class="tl-desc">Graduated with specialisation in AI &amp; Computer Vision. TA for Artificial Intelligence and Data Structures — conducted office hours, graded technical assignments for undergraduates.</p>
-          <div class="tl-tags"><span>AI</span><span>DSA</span><span>Python</span><span>Teaching</span></div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       PROJECTS
-  ══════════════════════════════════ -->
+  <!-- PROJECTS -->
   <section class="projects-section" id="projects">
-    <div class="section-head">
-      <div class="eyebrow">Selected Work</div>
-      <h2>Projects That <span class="grad">Ship</span></h2>
-    </div>
-    <div class="proj-grid">
-
-      <div class="proj-card proj-feat">
-        <div class="proj-img">
-          <img src="m_links_project.png" alt="MLinks">
-          <span class="proj-chip chip-live">🌐 Live Business</span>
+    <div class="container">
+      <div class="projects-hdr reveal">
+        <div>
+          <div class="section-eyebrow">Selected Work</div>
+          <h2 class="section-title">Projects<br/>That Ship</h2>
         </div>
-        <div class="proj-body">
-          <h3>MLinks Real Estate Platform</h3>
-          <p>Full-stack PropTech with AI lead-qualification chatbot — 6 DHA cities, live users, 24/7 zero human intervention.</p>
-          <div class="proj-tags"><span>PHP</span><span>MySQL</span><span>JS</span><span>AI Chatbot</span><span>WhatsApp CRM</span></div>
-          <a href="https://mlinksrealestate.com/" target="_blank" class="proj-link">Visit Live Site ↗</a>
-        </div>
+        <a href="https://github.com/Shahanbutt07" target="_blank" class="view-all-link">All repos on GitHub ↗</a>
       </div>
 
-      <div class="proj-card proj-feat">
-        <div class="proj-img">
-          <img src="ai_chatbot.png" alt="Chatbot">
-          <span class="proj-chip chip-demo">🔥 Live Demo</span>
+      <div class="proj-grid">
+        <div class="proj-card pj-feat reveal">
+          <div class="proj-img-wrap">
+            <img src="m_links_project.png" alt="MLinks Real Estate"/>
+            <div class="pchips"><span class="pchip pch-live">🌐 Live Business</span></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-idx">01</div>
+            <h3>MLinks Real Estate Platform</h3>
+            <p>Full-stack PropTech with AI lead-qualification chatbot — 6 DHA cities, live users, 24/7 zero human intervention. Full platform built from scratch in a single contract.</p>
+            <div class="proj-tags"><span>PHP</span><span>MySQL</span><span>LangChain</span><span>AI Chatbot</span><span>WhatsApp CRM</span></div>
+            <div class="proj-foot"><a href="https://mlinksrealestate.com/" target="_blank" class="plink">Visit Live Site ↗</a></div>
+          </div>
         </div>
-        <div class="proj-body">
-          <h3>AI Assistant — LangChain + RAG</h3>
-          <p>Production chatbot for a real client. Persistent memory, document Q&amp;A, streaming, persona switching.</p>
-          <div class="proj-tags"><span>LangChain</span><span>Groq</span><span>RAG</span><span>FAISS</span><span>Streamlit</span></div>
-          <div style="display:flex;gap:14px;margin-top:10px;">
-            <a href="https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/" target="_blank" class="proj-link">Live Demo ↗</a>
-            <a href="https://github.com/Shahanbutt07/ai-chatbot" target="_blank" class="proj-link" style="color:var(--td);">GitHub ↗</a>
+
+        <div class="proj-card reveal reveal-d1">
+          <div class="proj-img-wrap">
+            <img src="ai_chatbot.png" alt="AI Chatbot"/>
+            <div class="pchips"><span class="pchip pch-demo">🔥 Live Demo</span></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-idx">02</div>
+            <h3>AI Assistant — LangChain + RAG</h3>
+            <p>Production chatbot for a real paying client. Persistent memory, document Q&amp;A, streaming, persona switching.</p>
+            <div class="proj-tags"><span>LangChain</span><span>Groq</span><span>RAG</span><span>FAISS</span><span>Streamlit</span></div>
+            <div class="proj-foot">
+              <a href="https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/" target="_blank" class="plink">Live Demo ↗</a>
+              <a href="https://github.com/Shahanbutt07/ai-chatbot" target="_blank" class="plink plink-ghost">GitHub ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-d2">
+          <div class="proj-img-wrap">
+            <img src="AI-Based-Attendance-System-scaled.jpeg" alt="Attendance System"/>
+            <div class="pchips"><span class="pchip pch-fyp">🎓 FYP — UMT 2025</span></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-idx">03</div>
+            <h3>AI Attendance System</h3>
+            <p>96% facial recognition accuracy. AWS EC2 + GPU, 50+ students real-time. React dashboard + automated lighting alerts.</p>
+            <div class="proj-tags"><span>YOLOv8</span><span>DeepFace</span><span>FastAPI</span><span>React</span><span>Docker</span><span>AWS</span></div>
+            <div class="proj-foot"><a href="https://github.com/Shahanbutt07/Attendance-system-fyp" target="_blank" class="plink">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-d1">
+          <div class="proj-img-wrap">
+            <img src="hygiene.jpeg" alt="Hygiene Monitor"/>
+            <div class="pchips"><span class="pchip">Computer Vision</span></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-idx">04</div>
+            <h3>Hygiene Compliance Monitor</h3>
+            <p>Custom YOLOv8 — 94% detection accuracy, live camera feeds, Streamlit dashboard for real-time workplace safety.</p>
+            <div class="proj-tags"><span>YOLOv8</span><span>OpenCV</span><span>Streamlit</span></div>
+            <div class="proj-foot"><a href="https://github.com/Shahanbutt07/hygiene-compliance-detection" target="_blank" class="plink">GitHub ↗</a></div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-d2">
+          <div class="proj-img-wrap">
+            <img src="ai_chatbot.png" alt="Email Pipeline"/>
+            <div class="pchips"><span class="pchip pch-live">⚡ Live Pipeline</span></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-idx">05</div>
+            <h3>AI Email Automation Pipeline</h3>
+            <p>n8n + Groq — classifies emails into 6 categories, auto-drafts replies, pings Slack, logs to Google Sheets. Full retry &amp; error handling.</p>
+            <div class="proj-tags"><span>n8n</span><span>Groq</span><span>Gmail API</span><span>Slack</span><span>Google Sheets</span></div>
+            <div class="proj-foot"></div>
+          </div>
+        </div>
+
+        <div class="proj-card reveal reveal-d3">
+          <div class="proj-img-wrap">
+            <img src="preprocessing_pipeline.png" alt="ML Pipeline"/>
+            <div class="pchips"><span class="pchip">Engineering</span></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-idx">06</div>
+            <h3>ML Data Preprocessing Pipeline</h3>
+            <p>End-to-end data engineering + EDA — missing values, feature engineering, outlier detection, automated reporting.</p>
+            <div class="proj-tags"><span>Pandas</span><span>EDA</span><span>Python</span></div>
+            <div class="proj-foot"><a href="https://github.com/Shahanbutt07/ml-data-preprocessing-pipeline" target="_blank" class="plink">GitHub ↗</a></div>
           </div>
         </div>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-img">
-          <img src="ai_chatbot.png" alt="Email Automation">
-          <span class="proj-chip chip-live">⚡ Live Pipeline</span>
-        </div>
-        <div class="proj-body">
-          <h3>AI Email Automation Pipeline</h3>
-          <p>n8n + Groq — classifies emails into 6 categories, auto-drafts replies, pings Slack, logs to Google Sheets. Full retry &amp; error handling.</p>
-          <div class="proj-tags"><span>n8n</span><span>Groq</span><span>Gmail API</span><span>Slack</span><span>Google Sheets</span></div>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-img">
-          <img src="AI-Based-Attendance-System-scaled.jpeg" alt="Attendance">
-          <span class="proj-chip chip-fyp">🎓 FYP — UMT 2025</span>
-        </div>
-        <div class="proj-body">
-          <h3>AI-Powered Attendance System</h3>
-          <p>96% facial recognition accuracy. AWS EC2 + GPU, 50+ students real-time. React dashboard + automated lighting alerts.</p>
-          <div class="proj-tags"><span>YOLOv8</span><span>DeepFace</span><span>FastAPI</span><span>React</span><span>Docker</span><span>AWS</span></div>
-          <a href="https://github.com/Shahanbutt07/Attendance-system-fyp" target="_blank" class="proj-link">GitHub ↗</a>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-img">
-          <img src="hygiene.jpeg" alt="Hygiene">
-          <span class="proj-chip">Computer Vision</span>
-        </div>
-        <div class="proj-body">
-          <h3>Hygiene Compliance Monitor</h3>
-          <p>Custom YOLOv8 — 94% detection accuracy, live camera feeds, Streamlit dashboard for real-time workplace safety.</p>
-          <div class="proj-tags"><span>YOLOv8</span><span>OpenCV</span><span>Streamlit</span></div>
-          <a href="https://github.com/Shahanbutt07/hygiene-compliance-detection" target="_blank" class="proj-link">GitHub ↗</a>
-        </div>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-img">
-          <img src="preprocessing_pipeline.png" alt="Pipeline">
-          <span class="proj-chip">Engineering</span>
-        </div>
-        <div class="proj-body">
-          <h3>ML Data Preprocessing Pipeline</h3>
-          <p>End-to-end data engineering + EDA — missing values, feature engineering, outlier detection, automated reporting.</p>
-          <div class="proj-tags"><span>Pandas</span><span>EDA</span><span>Python</span></div>
-          <a href="https://github.com/Shahanbutt07/ml-data-preprocessing-pipeline" target="_blank" class="proj-link">GitHub ↗</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       HIRE ME
-  ══════════════════════════════════ -->
-  <section class="hire-section">
-    <div class="hire-card">
-      <div class="hire-glow"></div>
-      <div class="eyebrow" style="text-align:center;margin-bottom:16px;">Open for Business</div>
-      <h2 style="font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;text-align:center;margin-bottom:16px;">Have a project <span class="grad">in mind?</span></h2>
-      <p style="color:var(--td);text-align:center;max-width:520px;margin:0 auto;line-height:1.75;">
-        I take AI ideas from whiteboard to live production — chatbots, vision systems, LLM backends.
-        Clean code. Real results. Let's build something that ships.
-      </p>
-      <div style="text-align:center;margin-top:32px;">
-        <a href="mailto:shahansqb@gmail.com" class="btn-main">Start a Project →</a>
+  <!-- HIRE CTA -->
+  <section class="hire-section" id="contact">
+    <div class="container">
+      <div class="hire-card reveal">
+        <div class="hire-glow"></div>
+        <div class="hire-inner">
+          <div class="hire-left">
+            <div class="section-eyebrow" style="color:rgba(255,255,255,.4)">Open for Business</div>
+            <h2 class="hire-title">Have a project<br/><em>in mind?</em></h2>
+            <p class="hire-desc">I take AI ideas from whiteboard to live production — chatbots, vision systems, LLM backends. Clean code. Real results.</p>
+            <a href="mailto:shahansqb@gmail.com" class="btn-cta btn-light">Start a Project →</a>
+          </div>
+          <div class="hire-right">
+            <a href="mailto:shahansqb@gmail.com" class="hcr">
+              <div class="hcr-ic">✉</div>
+              <div><div class="hcr-label">Email</div><div class="hcr-val">shahansqb@gmail.com</div></div>
+              <span class="hcr-arr">→</span>
+            </a>
+            <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" target="_blank" class="hcr">
+              <div class="hcr-ic">in</div>
+              <div><div class="hcr-label">LinkedIn</div><div class="hcr-val">shahan-butt-aiengineer</div></div>
+              <span class="hcr-arr">→</span>
+            </a>
+            <a href="https://github.com/Shahanbutt07" target="_blank" class="hcr">
+              <div class="hcr-ic">⌥</div>
+              <div><div class="hcr-label">GitHub</div><div class="hcr-val">Shahanbutt07</div></div>
+              <span class="hcr-arr">→</span>
+            </a>
+            <div class="hire-avail"><span class="avail-dot"></span>Available · Full-time &amp; Contract · Remote / Lahore</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       CERTIFICATIONS
-  ══════════════════════════════════ -->
-  <section class="cert-section" id="certifications">
-    <div class="section-head">
-      <div class="eyebrow">Credentials</div>
-      <h2><span class="grad">Certifications</span></h2>
-    </div>
-    <div class="cert-grid">
-      <div class="cert-card">
-        <div class="cert-top">
-          <span>🏆</span>
-          <span class="cert-yr">July 2023</span>
-        </div>
-        <h3>Data Science with Python</h3>
-        <p class="cert-org">Great Learning</p>
-        <p class="cert-desc">Data mining, predictive modeling, and statistical analysis for AI/ML applications.</p>
-        <div class="cert-tags"><span>Python</span><span>Data Science</span></div>
+  <!-- CERTIFICATIONS -->
+  <section class="cert-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-eyebrow">Credentials</div>
+        <h2 class="section-title">Certifications</h2>
       </div>
-      <div class="cert-wip">
-        <div style="font-size:2rem;margin-bottom:12px;">🚀</div>
-        <h3>Currently Learning</h3>
-        <p style="color:var(--td);font-size:0.9rem;line-height:1.6;margin-top:8px;">LLM fine-tuning · Agentic AI workflows · MLOps pipelines</p>
-        <p style="color:var(--ag);font-size:0.8rem;font-weight:700;margin-top:12px;">More certifications incoming →</p>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cc-icon">🏆</div>
+          <h3>Data Science with Python</h3>
+          <div class="cc-org">Great Learning</div>
+          <p class="cc-desc">Data mining, predictive modeling, and statistical analysis for AI/ML applications.</p>
+          <div class="cc-year">July 2023</div>
+        </div>
+        <div class="cert-card reveal reveal-d1">
+          <div class="cc-icon">🎓</div>
+          <h3>Best Academic Result Award</h3>
+          <div class="cc-org">University of Management &amp; Technology</div>
+          <p class="cc-desc">Awarded twice for outstanding academic performance — specialisation in AI &amp; Computer Vision.</p>
+          <div class="cc-year">2023 &amp; 2025</div>
+        </div>
+        <div class="cert-card cert-wip reveal reveal-d2">
+          <div class="cc-icon">🚀</div>
+          <h3>Currently Learning</h3>
+          <ul class="wip-list">
+            <li>LLM Fine-Tuning</li>
+            <li>Agentic AI Workflows</li>
+            <li>MLOps Pipelines</li>
+            <li>ScyllaDB for high-performance data</li>
+          </ul>
+          <div class="cc-year" style="color:var(--ab)">More certifications incoming →</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       FOOTER
-  ══════════════════════════════════ -->
-  <footer class="footer" id="contact">
+  <!-- FOOTER -->
+  <footer class="footer">
     <div class="footer-glow"></div>
-    <h2 class="footer-h">Let's Build<br><span class="grad">Together.</span></h2>
-    <p class="footer-sub">Remote — Available Worldwide</p>
-    <a href="mailto:shahansqb@gmail.com" class="footer-email">shahansqb@gmail.com</a>
-    <div class="footer-links">
-      <a href="https://github.com/Shahanbutt07" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" target="_blank">LinkedIn</a>
-      <a href="mailto:shahansqb@gmail.com">Email</a>
+    <div class="container">
+      <h2 class="footer-big reveal">Let's Build<br/><span class="grad">Together.</span></h2>
+      <p class="footer-sub reveal reveal-d1">Remote — Available Worldwide · shahansqb@gmail.com</p>
+      <div class="footer-links reveal reveal-d2">
+        <a href="https://github.com/Shahanbutt07" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" target="_blank">LinkedIn</a>
+        <a href="mailto:shahansqb@gmail.com">Email</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Muhammad Shahan Butt</span>
+        <span>Built with precision · Lahore, Pakistan</span>
+      </div>
     </div>
-    <p class="footer-copy">Built by Shahan Butt · 2025</p>
   </footer>
 
+  <script>
+    /* cursor */
+    const dot = document.getElementById('cursor-dot');
+    const glow = document.getElementById('cursor-glow');
+    let mx=0,my=0,gx=0,gy=0;
+    document.addEventListener('mousemove', e => {
+      mx=e.clientX; my=e.clientY;
+      dot.style.transform=`translate(${mx-4}px,${my-4}px)`;
+    });
+    (function anim(){ gx+=(mx-gx)*0.1; gy+=(my-gy)*0.1; glow.style.transform=`translate(${gx-20}px,${gy-20}px)`; requestAnimationFrame(anim); })();
+    document.querySelectorAll('a,button').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{dot.classList.add('ch');glow.classList.add('ch');});
+      el.addEventListener('mouseleave',()=>{dot.classList.remove('ch');glow.classList.remove('ch');});
+    });
+
+    /* starfield canvas */
+    const canvas=document.getElementById('bg-canvas');
+    const ctx=canvas.getContext('2d');
+    let W,H,stars=[];
+    function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
+    function init(){ stars=[]; for(let i=0;i<130;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+0.2,o:Math.random()*0.4+0.1,s:Math.random()*0.3+0.05}); }
+    function draw(){ ctx.clearRect(0,0,W,H); stars.forEach(s=>{ s.o+=Math.sin(Date.now()*0.001*s.s)*0.004; ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle=`rgba(148,163,184,${Math.max(0.05,Math.min(0.55,s.o))})`; ctx.fill(); }); requestAnimationFrame(draw); }
+    resize(); init(); draw();
+    window.addEventListener('resize',()=>{resize();init();});
+
+    /* reveal on scroll */
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); }),{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    /* nav scroll */
+    window.addEventListener('scroll',()=> document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60));
+
+    /* active nav */
+    const secs=document.querySelectorAll('section[id]');
+    const nls=document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll',()=>{
+      let c=''; secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-140) c=s.id; });
+      nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+c));
+    });
+  </script>
 </body>
 </html>
