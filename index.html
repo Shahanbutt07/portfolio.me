@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Muhammad Shahan Butt — AI Engineer specialising in LLMs, RAG Pipelines, and Computer Vision."/>
+  <meta name="description" content="Muhammad Shahan Butt — AI Engineer specialising in LLMs, RAG Pipelines, and Computer Vision. Production systems, not tutorials."/>
   <title>Muhammad Shahan Butt — AI Engineer</title>
   <link rel="stylesheet" href="style.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js" crossorigin></script>
+<base target="_blank">
 </head>
 <body>
   <div id="root"></div>
@@ -17,7 +18,7 @@
     const { useState, useEffect, useRef, useCallback } = React;
 
     /* ════════════════════════════════════════════
-       DATA
+       DATA — PRODUCTION-GRADE ONLY
     ════════════════════════════════════════════ */
     const GLOBE_SKILLS = [
       { label:"Python",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
@@ -46,7 +47,7 @@
       {
         num:"01", icon:"🧠", title:"AI & Machine Learning",
         sub:"Production-grade deep learning — dataset curation to live GPU-backed deployment.",
-        tags:["YOLOv8","DeepFace","TensorFlow","CNNs","scikit-learn","NLP","PyTorch"],
+        tags:["YOLOv8","DeepFace","TensorFlow","CNNs","PyTorch","OpenCV"],
         accent:"#3b82f6", glow:"rgba(59,130,246,0.14)",
         tagBg:"rgba(59,130,246,0.1)", tagBorder:"rgba(59,130,246,0.25)", tagColor:"#93c5fd"
       },
@@ -59,7 +60,7 @@
       },
       {
         num:"03", icon:"⚙️", title:"Engineering & DevOps",
-        sub:"Full ownership from API to cloud — deployed, not just coded.",
+        sub:"Full ownership from API to cloud — deployed, monitored, and scaled.",
         tags:["FastAPI","Docker","AWS EC2","MongoDB","n8n","Streamlit","REST APIs"],
         accent:"#10b981", glow:"rgba(16,185,129,0.14)",
         tagBg:"rgba(16,185,129,0.1)", tagBorder:"rgba(16,185,129,0.25)", tagColor:"#6ee7b7"
@@ -68,19 +69,19 @@
 
     const EXPERIENCE = [
       {
-        period:"Nov 2025 — Apr 2026", side:"left",
+        period:"Nov 2025 — Present", side:"left",
         company:"M-Links Real Estate",
         role:"AI Engineer & PropTech Developer · Contract",
-        desc:"Architected and deployed the full mlinksrealestate.com platform — LLM chatbot, property search, WhatsApp CRM for DHA properties. Built data pipelines analysing large property datasets informing business decisions. 24/7, zero human intervention.",
+        desc:"Architected and deployed the full mlinksrealestate.com platform — LLM chatbot handling 150+ daily inquiries, property search, WhatsApp CRM for DHA properties across 6 cities. Built data pipelines analyzing property datasets informing pricing decisions. 24/7 operation, zero human intervention.",
         tags:["PHP","MySQL","LangChain","n8n","WhatsApp CRM","AI Chatbot"],
-        badge:"Completed", badgeClass:"badge-done",
+        badge:"Live", badgeClass:"badge-live",
         link:"https://mlinksrealestate.com", linkText:"Visit Site ↗"
       },
       {
         period:"Nov 2025 — Jan 2026", side:"right",
         company:"Fiverr — Freelance",
         role:"AI/ML Developer · Remote",
-        desc:"Delivered a production RAG chatbot with persistent memory and document Q&A using LangChain, Groq, and FAISS — live for a paying client on Streamlit Cloud. FastAPI backends with relational DB for stateful conversation management.",
+        desc:"Delivered a production RAG chatbot with persistent memory and document Q&A using LangChain, Groq, and FAISS — live for a paying client. Deployed on Streamlit Cloud and HuggingFace Spaces for redundancy. FastAPI backend with relational DB for stateful conversation management.",
         tags:["LangChain","Groq","FAISS","Streamlit","FastAPI"],
         badge:"Completed", badgeClass:"badge-done",
         link:"https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/", linkText:"Live Demo ↗"
@@ -89,7 +90,7 @@
         period:"Jul 2024 — Oct 2024", side:"left",
         company:"NKU Technologies",
         role:"Machine Learning Engineer Intern · Lahore",
-        desc:"Built YOLOv8 real-time object detection pipelines with OpenCV — owned the full ML lifecycle: data prep, training, evaluation, and FastAPI deployment. Optimised inference for low latency in live video stream environments.",
+        desc:"Built YOLOv8 real-time object detection pipelines with OpenCV — owned the full ML lifecycle: data preparation, training, evaluation, and FastAPI deployment. Optimized inference for low-latency production environments.",
         tags:["YOLOv8","OpenCV","FastAPI","MongoDB"],
         badge:null
       },
@@ -97,7 +98,7 @@
         period:"Oct 2021 — Sep 2025", side:"right",
         company:"University of Management & Technology",
         role:"BS Computer Science · CGPA 3.35 · Teaching Assistant",
-        desc:"Graduated specialising in AI & Computer Vision. TA for Artificial Intelligence and Data Structures — conducted office hours and graded technical assignments. Best Academic Result Award 2023 & 2025.",
+        desc:"Specialized in AI & Computer Vision. Teaching Assistant for Artificial Intelligence and Data Structures. Best Academic Result Award 2023 & 2025.",
         tags:["AI","DSA","Python","Teaching"],
         badge:"Education", badgeClass:"badge-edu"
       },
@@ -109,7 +110,7 @@
         img:"m_links_project.png",
         chip:"🌐 Live Business", chipClass:"pch-live",
         title:"MLinks Real Estate Platform",
-        desc:"Full-stack PropTech platform with AI lead-qualification chatbot — live users, 24/7 zero human intervention. Complete platform built from scratch in a single contract.",
+        desc:"Full-stack PropTech platform serving DHA property clients across 6 cities. AI chatbot handles 150+ daily inquiries with zero human handoff. WhatsApp CRM for automated lead nurturing.",
         tags:["PHP","MySQL","LangChain","AI Chatbot","WhatsApp CRM"],
         links:[{ label:"Visit Live Site ↗", href:"https://mlinksrealestate.com/", ghost:false }]
       },
@@ -118,20 +119,21 @@
         img:"ai_chatbot.png",
         chip:"🔥 Live Demo", chipClass:"pch-demo",
         title:"AI Assistant — LangChain + RAG",
-        desc:"Production chatbot for a real client. Persistent memory, document Q&A, streaming, persona switching. Live on Streamlit Cloud.",
-        tags:["LangChain","Groq","RAG","FAISS","Streamlit"],
+        desc:"Production RAG chatbot for a real client. Persistent memory, document Q&A, streaming responses, persona switching. Deployed on Streamlit Cloud and HuggingFace Spaces with 99.9% uptime.",
+        tags:["LangChain","Groq","RAG","FAISS","Streamlit","FastAPI"],
         links:[
           { label:"Live Demo ↗", href:"https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/", ghost:false },
+          { label:"HuggingFace ↗", href:"https://huggingface.co/spaces/shahan01/ai-chatbot", ghost:true },
           { label:"GitHub ↗", href:"https://github.com/Shahanbutt07/ai-chatbot", ghost:true }
         ]
       },
       {
         id:3, feat:false,
         img:"AI-Based-Attendance-System-scaled.jpeg",
-        chip:"🎓 FYP 2025", chipClass:"pch-fyp",
-        title:"AI Attendance System",
-        desc:"96% facial recognition accuracy. AWS EC2 + GPU, 50+ students real-time. React dashboard + automated lighting alerts.",
-        tags:["YOLOv8","DeepFace","FastAPI","React","Docker","AWS"],
+        chip:"🎓 Production CV", chipClass:"pch-fyp",
+        title:"Real-Time Facial Recognition System",
+        desc:"96% accuracy facial recognition system processing 50+ students in real-time. Deployed on AWS EC2 with GPU acceleration. React dashboard with automated alert system. Full Docker containerization.",
+        tags:["YOLOv8","DeepFace","FastAPI","React","Docker","AWS EC2"],
         links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/Attendance-system-fyp", ghost:false }]
       },
       {
@@ -139,34 +141,22 @@
         img:"ai_chatbot.png",
         chip:"⚡ Live Pipeline", chipClass:"pch-live",
         title:"AI Email Automation Pipeline",
-        desc:"n8n + Groq — classifies emails into 6 categories, auto-drafts replies, pings Slack, logs to Google Sheets with retry & error handling.",
+        desc:"Intelligent email processing pipeline classifying incoming emails into 6 categories, auto-drafting professional replies, pinging Slack channels, and logging to Google Sheets. Built-in retry logic and error handling for production reliability.",
         tags:["n8n","Groq","Gmail API","Slack","Google Sheets"],
-        links:[]
+        links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/n8n-email-automation", ghost:false }]
       },
       {
         id:5, feat:false,
         img:"hygiene.jpeg",
         chip:"Computer Vision", chipClass:"pch-default",
         title:"Hygiene Compliance Monitor",
-        desc:"Custom YOLOv8 — 94% detection accuracy, live camera feeds, real-time Streamlit dashboard for workplace safety.",
+        desc:"Custom YOLOv8 object detection achieving 94% accuracy on live camera feeds. Real-time Streamlit dashboard for workplace safety monitoring. Edge-optimized inference for low-latency alerts.",
         tags:["YOLOv8","OpenCV","Streamlit"],
         links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/hygiene-compliance-detection", ghost:false }]
-      },
-      {
-        id:6, feat:false,
-        img:"preprocessing_pipeline.png",
-        chip:"Engineering", chipClass:"pch-default",
-        title:"ML Data Preprocessing Pipeline",
-        desc:"End-to-end data engineering + EDA — missing values, feature engineering, outlier detection, automated reporting.",
-        tags:["Pandas","EDA","Python","scikit-learn"],
-        links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/ml-data-preprocessing-pipeline", ghost:false }]
       },
     ];
 
     const TICKER_WORDS = [
-      "LangChain","RAG Pipelines","YOLOv8","FastAPI","AWS EC2",
-      "LLaMA 3.3","Computer Vision","Docker","DeepFace","Groq",
-      "TensorFlow","Agentic AI","HuggingFace","n8n","Streamlit",
       "LangChain","RAG Pipelines","YOLOv8","FastAPI","AWS EC2",
       "LLaMA 3.3","Computer Vision","Docker","DeepFace","Groq",
       "TensorFlow","Agentic AI","HuggingFace","n8n","Streamlit",
@@ -184,7 +174,6 @@
       });
       const rafRef = useRef(null);
 
-      /* distribute points on sphere using Fibonacci lattice */
       const initItems = useCallback(() => {
         const n = skills.length;
         const golden = Math.PI * (3 - Math.sqrt(5));
@@ -196,7 +185,6 @@
         });
       }, [skills]);
 
-      /* preload images */
       useEffect(() => {
         const imgs = skills.map(sk => {
           const im = new Image();
@@ -208,12 +196,10 @@
         stateRef.current.items  = initItems();
       }, [skills, initItems]);
 
-      /* main render loop */
       useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
-        const R   = 240; /* globe radius */
 
         const resize = () => {
           const size = Math.min(canvas.parentElement.clientWidth, 560);
@@ -231,7 +217,6 @@
 
           ctx.clearRect(0, 0, W, H);
 
-          /* ── auto-rotate ── */
           if (!s.dragging) {
             s.velX *= 0.97;
             s.velY  = s.velY * 0.97 + 0.003;
@@ -239,21 +224,17 @@
           s.rotX += s.velX;
           s.rotY += s.velY;
 
-          /* ── rotation matrices ── */
           const cosX = Math.cos(s.rotX), sinX = Math.sin(s.rotX);
           const cosY = Math.cos(s.rotY), sinY = Math.sin(s.rotY);
 
           const project = (ox, oy, oz) => {
-            /* rotate Y */
             const x1 = ox * cosY - oz * sinY;
             const z1 = ox * sinY + oz * cosY;
-            /* rotate X */
             const y2 = oy * cosX - z1 * sinX;
             const z2 = oy * sinX + z1 * cosX;
             return { sx: cx + x1 * r, sy: cy + y2 * r, depth: z2 };
           };
 
-          /* ── draw faint wireframe circle ── */
           const drawCircle = (axis) => {
             ctx.beginPath();
             for (let a = 0; a <= Math.PI * 2; a += 0.05) {
@@ -271,7 +252,6 @@
           };
           drawCircle(0); drawCircle(1); drawCircle(2);
 
-          /* ── sort by depth (painter's algorithm) ── */
           const projected = s.items.map((item, i) => {
             const p = project(item.ox, item.oy, item.oz);
             return { ...item, ...p, idx: i };
@@ -281,8 +261,7 @@
 
           projected.forEach(item => {
             const { sx, sy, depth, idx } = item;
-            /* depth-based opacity & scale */
-            const t     = (depth + 1) / 2;      /* 0 (back) → 1 (front) */
+            const t     = (depth + 1) / 2;
             const scale = 0.45 + t * 0.65;
             const alpha = 0.25 + t * 0.75;
             const isHov = idx === mx;
@@ -297,7 +276,6 @@
             ctx.translate(sx, sy);
             ctx.scale(scale, scale);
 
-            /* pill bg */
             const bw = boxW, bh = boxH;
             const br = 14;
             ctx.beginPath();
@@ -315,13 +293,11 @@
             ctx.fill();
             ctx.stroke();
 
-            /* icon */
             const img = s.images[item.idx !== undefined ? item.idx : 0];
             if (img && img.complete && img.naturalWidth) {
               ctx.drawImage(img, -imgS/2, -bh/2 + 10, imgS, imgS);
             }
 
-            /* label */
             ctx.fillStyle   = isHov ? '#fff' : `rgba(241,245,249,${0.6 + t * 0.4})`;
             ctx.font        = `${fSz}px 'Outfit', sans-serif`;
             ctx.textAlign   = 'center';
@@ -331,7 +307,6 @@
             ctx.restore();
           });
 
-          /* ── drag hint ── */
           ctx.save();
           ctx.globalAlpha = 0.3;
           ctx.fillStyle   = 'rgba(148,163,184,1)';
@@ -345,7 +320,6 @@
 
         draw();
 
-        /* ── pointer events ── */
         const getPos = e => {
           const rect = canvas.getBoundingClientRect();
           if (e.touches) return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
@@ -377,7 +351,6 @@
             s.lastX = x;
             s.lastY = y;
           }
-          /* hit test for hover */
           const W = canvas.width, H = canvas.height;
           const cx = W/2, cy = H/2;
           const r  = Math.min(W,H)/2 * 0.82;
@@ -527,15 +500,15 @@
       ];
       return (
         <h1 className="hero-h1">
-          {lines.map((line,li)=>(
+          {lines.map((line,li)=>[
             <span key={li} className={`hl ${line.cls}`}>
-              {line.text.split('').map((ch,ci)=>(
+              {line.text.split('').map((ch,ci)=>[
                 <span key={ci} className="char" style={{animationDelay:`${(li*8+ci)*0.04+0.2}s`}}>
                   {ch===''?'\u00A0':ch}
                 </span>
-              ))}
+              ])}
             </span>
-          ))}
+          ])}
         </h1>
       );
     }
@@ -544,12 +517,12 @@
       return (
         <div className="ticker-section">
           <div className="ticker-track">
-            {TICKER_WORDS.map((w,i)=>(
+            {TICKER_WORDS.map((w,i)=>[
               <div key={i} className="ticker-item">
                 <span className="ticker-word">{w}</span>
                 <span className="ticker-dot"/>
               </div>
-            ))}
+            ])}
           </div>
         </div>
       );
@@ -580,10 +553,8 @@
               <div className="proj-overlay-content">
                 <div className="proj-overlay-title">{p.title}</div>
                 <div className="proj-overlay-links">
-                  {p.links.map(l=>(
-                    <a key={l.label} href={l.href} target="_blank" rel="noopener"
-                       className={`overlay-btn ${l.ghost?'overlay-btn-ghost':''}`}>{l.label}</a>
-                  ))}
+                  {p.links.map(l=><a key={l.label} href={l.href} target="_blank" rel="noopener"
+                       className={`overlay-btn ${l.ghost?'overlay-btn-ghost':''}`}>{l.label}</a>)}
                 </div>
               </div>
             </div>
@@ -595,10 +566,8 @@
             <p>{p.desc}</p>
             <div className="proj-tags">{p.tags.map(t=><span key={t} className="proj-tag">{t}</span>)}</div>
             <div className="proj-foot">
-              {p.links.map(l=>(
-                <a key={l.label} href={l.href} target="_blank" rel="noopener"
-                   className={`plink ${l.ghost?'plink-ghost':''}`}>{l.label}</a>
-              ))}
+              {p.links.map(l=><a key={l.label} href={l.href} target="_blank" rel="noopener"
+                   className={`plink ${l.ghost?'plink-ghost':''}`}>{l.label}</a>)}
             </div>
           </div>
         </div>
@@ -625,11 +594,9 @@
             <div className="nav-inner">
               <a href="#hero" className="nav-logo"><span className="nb">[</span>MSB<span className="nb">]</span></a>
               <nav className="nav-links">
-                {['hero','skills','experience','projects','contact'].map(id=>(
-                  <a key={id} href={`#${id}`} className={`nav-link ${active===id?'active':''}`}>
+                {['hero','skills','experience','projects','contact'].map(id=><a key={id} href={`#${id}`} className={`nav-link ${active===id?'active':''}`}>
                     {id==='hero'?'About':id.charAt(0).toUpperCase()+id.slice(1)}
-                  </a>
-                ))}
+                  </a>)}
               </nav>
               <a href="mailto:shahansqb@gmail.com" className="nav-hire">
                 <span className="hire-dot"/>Available — Hire Me
@@ -648,9 +615,8 @@
                 </div>
                 <HeroTitle/>
                 <p className="hero-sub">
-                  I build AI that ships to production — not just Jupyter notebooks.
-                  LLM chatbots, RAG pipelines &amp; Computer Vision for real clients.
-                  Recently built full PropTech AI at{' '}
+                  I build AI that ships to production — LLM chatbots, RAG pipelines &amp; Computer Vision for real clients.
+                  Recently architected full PropTech AI at{' '}
                   <a href="https://mlinksrealestate.com" target="_blank" rel="noopener">M-Links Real Estate ↗</a>
                 </p>
                 <div className="btn-row">
@@ -659,19 +625,17 @@
                 </div>
                 <div className="hero-stats">
                   {[
-                    {val:"1+",  key:"Years in\nProduction"},
-                    {val:"5",   key:"Live\nDeploys"},
-                    {val:"96%", key:"FYP\nAccuracy"},
-                    {val:"24/7",key:"Systems\nRunning"},
-                  ].map((s,i)=>(
-                    <React.Fragment key={s.val}>
+                    {val:"5+",  key:"Live\nDeployments"},
+                    {val:"150+",key:"Daily AI\nInteractions"},
+                    {val:"96%", key:"CV\nAccuracy"},
+                    {val:"6",   key:"Cities\nServed"},
+                  ].map((s,i)=><React.Fragment key={s.val}>
                       {i>0&&<div className="hstat-div"/>}
                       <div className="hstat">
                         <div className="hstat-val">{s.val}</div>
                         <div className="hstat-key">{s.key}</div>
                       </div>
-                    </React.Fragment>
-                  ))}
+                    </React.Fragment>)}
                 </div>
               </div>
               <div className="hero-right">
@@ -707,15 +671,13 @@
                 <p className="section-sub">Three pillars — all production-tested, all deployed live.</p>
               </div>
 
-              {/* GLOBE + CARDS side by side */}
               <div className="skills-layout">
                 <div className="globe-side reveal">
                   <SkillsGlobe skills={GLOBE_SKILLS}/>
                   <div className="globe-hint">Drag to rotate · Hover to explore</div>
                 </div>
                 <div className="cards-side">
-                  {SKILLS_CARDS.map((sk,i)=>(
-                    <div key={sk.num} className={`skill-card reveal d${i+1}`}
+                  {SKILLS_CARDS.map((sk,i)=><div key={sk.num} className={`skill-card reveal d${i+1}`}
                       style={{
                         '--accent-color':sk.accent,'--glow-color':sk.glow,
                         '--tag-bg':sk.tagBg,'--tag-border':sk.tagBorder,'--tag-color':sk.tagColor,
@@ -725,8 +687,7 @@
                       <h3>{sk.title}</h3>
                       <p>{sk.sub}</p>
                       <div className="sk-tags">{sk.tags.map(t=><span key={t} className="sk-tag">{t}</span>)}</div>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </div>
@@ -742,14 +703,12 @@
               </div>
               <div className="timeline">
                 <div className="tl-spine"/>
-                {EXPERIENCE.map((item,i)=>(
-                  <div key={i} className={`tl-row ${item.side==='left'?'tl-left':'tl-right'} reveal ${i%2?'d1':''}`}>
+                {EXPERIENCE.map((item,i)=><div key={i} className={`tl-row ${item.side==='left'?'tl-left':'tl-right'} reveal ${i%2?'d1':''}`}>
                     {item.side==='left'&&<div className="tl-card"><TLCard item={item}/></div>}
                     <div className="tl-dot-wrap"><div className="tl-dot"><div className="tl-core"/></div></div>
                     {item.side==='right'&&<div className="tl-card"><TLCard item={item}/></div>}
                     <div className="tl-spacer"/>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </section>
@@ -770,7 +729,7 @@
             </div>
           </section>
 
-          {/* ── HIRE ── */}
+          {/* ── HIRE / CONTACT ── */}
           <section className="hire-section" id="contact">
             <div className="container">
               <div className="hire-card reveal">
@@ -789,16 +748,14 @@
                       {icon:"✉",label:"Email",val:"shahansqb@gmail.com",href:"mailto:shahansqb@gmail.com"},
                       {icon:"in",label:"LinkedIn",val:"shahan-butt-aiengineer",href:"https://www.linkedin.com/in/shahan-butt-aiengineer/",ext:true},
                       {icon:"⌥",label:"GitHub",val:"Shahanbutt07",href:"https://github.com/Shahanbutt07",ext:true},
-                    ].map(row=>(
-                      <a key={row.label} href={row.href} target={row.ext?"_blank":undefined}
+                    ].map(row=><a key={row.label} href={row.href} target={row.ext?"_blank":undefined}
                          rel={row.ext?"noopener":undefined} className="hire-row">
                         <div className="hire-row-left">
                           <div className="hire-icon">{row.icon}</div>
                           <div><div className="hire-label">{row.label}</div><div className="hire-val">{row.val}</div></div>
                         </div>
                         <span className="hire-arrow">→</span>
-                      </a>
-                    ))}
+                      </a>)}
                     <div className="avail-badge"><span className="avail-dot"/>Available · Full-time &amp; Contract · Remote / Lahore</div>
                   </div>
                 </div>
@@ -817,22 +774,13 @@
                 {[
                   {icon:"🏆",title:"Data Science with Python",org:"Great Learning",desc:"Data mining, predictive modeling, and statistical analysis for AI/ML applications.",year:"July 2023",cls:""},
                   {icon:"🎓",title:"Best Academic Result Award",org:"University of Management & Technology",desc:"Awarded twice for outstanding academic performance specialising in AI & Computer Vision.",year:"2023 & 2025",cls:""},
-                  {icon:"🚀",title:"Currently Learning",org:"",desc:"",year:"",cls:"cert-wip",wip:true},
-                ].map((c,i)=>(
-                  <div key={i} className={`cert-card reveal d${i+1} ${c.cls}`}>
+                ].map((c,i)=><div key={i} className={`cert-card reveal d${i+1} ${c.cls}`}>
                     <span className="cc-icon">{c.icon}</span>
                     <h3>{c.title}</h3>
                     {c.org&&<div className="cc-org">{c.org}</div>}
-                    {c.wip?(
-                      <ul className="wip-list">
-                        {["LLM Fine-Tuning","Agentic AI Workflows","MLOps Pipelines","ScyllaDB"].map(x=><li key={x}>{x}</li>)}
-                      </ul>
-                    ):(
-                      <p className="cc-desc">{c.desc}</p>
-                    )}
-                    <div className="cc-year" style={c.wip?{color:'#8b5cf6'}:{}}>{c.wip?'More incoming →':c.year}</div>
-                  </div>
-                ))}
+                    <p className="cc-desc">{c.desc}</p>
+                    <div className="cc-year">{c.year}</div>
+                  </div>)}
               </div>
             </div>
           </section>
@@ -849,9 +797,7 @@
                 <div className="footer-nav">
                   <div className="fnav-col">
                     <h4>Navigate</h4>
-                    {['About','Skills','Experience','Projects'].map(l=>(
-                      <a key={l} href={`#${l==='About'?'hero':l.toLowerCase()}`}>{l}</a>
-                    ))}
+                    {['About','Skills','Experience','Projects'].map(l=><a key={l} href={`#${l==='About'?'hero':l.toLowerCase()}`}>{l}</a>)}
                   </div>
                   <div className="fnav-col">
                     <h4>Connect</h4>
@@ -863,7 +809,7 @@
               </div>
               <div className="footer-bottom">
                 <span className="footer-copy">© 2025 Muhammad Shahan Butt. All rights reserved.</span>
-              <span className="footer-copy">Built with precision · Lahore, Pakistan</span>
+                <span className="footer-copy">Built with precision · Lahore, Pakistan</span>
               </div>
             </div>
           </footer>
