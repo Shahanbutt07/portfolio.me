@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Muhammad Shahan Butt — AI Engineer specialising in LLMs, RAG Pipelines, and Computer Vision. Production deployments, not just demos."/>
+  <meta name="description" content="Muhammad Shahan Butt — AI Engineer specialising in LLMs, RAG Pipelines, and Computer Vision."/>
   <title>Muhammad Shahan Butt — AI Engineer</title>
   <link rel="stylesheet" href="style.css"/>
-  <!-- React + Babel via CDN – no build step needed -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js" crossorigin></script>
@@ -17,30 +16,52 @@
   <script type="text/babel">
     const { useState, useEffect, useRef, useCallback } = React;
 
-    /* ═══════════════ DATA ═══════════════ */
-    const SKILLS = [
+    /* ════════════════════════════════════════════
+       DATA
+    ════════════════════════════════════════════ */
+    const GLOBE_SKILLS = [
+      { label:"Python",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { label:"TensorFlow",   img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+      { label:"FastAPI",      img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+      { label:"Docker",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { label:"React",        img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { label:"MongoDB",      img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+      { label:"AWS EC2",      img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+      { label:"OpenCV",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" },
+      { label:"PyTorch",      img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+      { label:"MySQL",        img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { label:"Pandas",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+      { label:"JavaScript",   img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { label:"Linux",        img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+      { label:"Git",          img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { label:"SQLite",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" },
+      { label:"HuggingFace",  img:"https://huggingface.co/front/assets/huggingface_logo-noborder.svg" },
+      { label:"Streamlit",    img:"https://streamlit.io/images/brand/streamlit-mark-color.svg" },
+      { label:"LangChain",    img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { label:"YOLOv8",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" },
+      { label:"HTML5",        img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    ];
+
+    const SKILLS_CARDS = [
       {
         num:"01", icon:"🧠", title:"AI & Machine Learning",
-        sub:"Production-grade deep learning — from dataset curation to live GPU-backed deployment.",
-        tags:["Python","TensorFlow","CNNs","YOLOv8","DeepFace","scikit-learn","NumPy","Pandas","PyTorch","NLP"],
-        accent:"#3b82f6",
-        glow:"rgba(59,130,246,0.12)",
+        sub:"Production-grade deep learning — dataset curation to live GPU-backed deployment.",
+        tags:["YOLOv8","DeepFace","TensorFlow","CNNs","scikit-learn","NLP","PyTorch"],
+        accent:"#3b82f6", glow:"rgba(59,130,246,0.14)",
         tagBg:"rgba(59,130,246,0.1)", tagBorder:"rgba(59,130,246,0.25)", tagColor:"#93c5fd"
       },
       {
         num:"02", icon:"🤖", title:"LLMs & Generative AI",
-        sub:"Intelligent agents and retrieval systems that paying clients actually use every day.",
-        tags:["LangChain","RAG","FAISS","Groq","LLaMA 3.3","HuggingFace","Prompt Engineering","Agentic AI","spaCy"],
-        accent:"#8b5cf6",
-        glow:"rgba(139,92,246,0.12)",
+        sub:"Intelligent agents and retrieval systems paying clients use every day.",
+        tags:["LangChain","RAG","FAISS","Groq","LLaMA 3.3","HuggingFace","Agentic AI"],
+        accent:"#8b5cf6", glow:"rgba(139,92,246,0.14)",
         tagBg:"rgba(139,92,246,0.1)", tagBorder:"rgba(139,92,246,0.25)", tagColor:"#c4b5fd"
       },
       {
         num:"03", icon:"⚙️", title:"Engineering & DevOps",
-        sub:"Full ownership from API to cloud — everything deployed, not just coded in a notebook.",
-        tags:["FastAPI","Docker","AWS EC2","MongoDB","MySQL","SQLite","REST APIs","n8n","Streamlit","Git"],
-        accent:"#10b981",
-        glow:"rgba(16,185,129,0.12)",
+        sub:"Full ownership from API to cloud — deployed, not just coded.",
+        tags:["FastAPI","Docker","AWS EC2","MongoDB","n8n","Streamlit","REST APIs"],
+        accent:"#10b981", glow:"rgba(16,185,129,0.14)",
         tagBg:"rgba(16,185,129,0.1)", tagBorder:"rgba(16,185,129,0.25)", tagColor:"#6ee7b7"
       },
     ];
@@ -50,7 +71,7 @@
         period:"Nov 2025 — Apr 2026", side:"left",
         company:"M-Links Real Estate",
         role:"AI Engineer & PropTech Developer · Contract",
-        desc:"Architected and deployed the full mlinksrealestate.com platform — LLM chatbot, smart property search, WhatsApp CRM across 6 DHA cities. Built end-to-end data pipelines analysing large property datasets that directly informed business decisions. 24/7 zero human intervention.",
+        desc:"Architected and deployed the full mlinksrealestate.com platform — LLM chatbot, property search, WhatsApp CRM across 6 DHA cities. Built data pipelines analysing large property datasets informing business decisions. 24/7, zero human intervention.",
         tags:["PHP","MySQL","LangChain","n8n","WhatsApp CRM","AI Chatbot"],
         badge:"Completed", badgeClass:"badge-done",
         link:"https://mlinksrealestate.com", linkText:"Visit Site ↗"
@@ -59,7 +80,7 @@
         period:"Nov 2025 — Jan 2026", side:"right",
         company:"Fiverr — Freelance",
         role:"AI/ML Developer · Remote",
-        desc:"Delivered a production RAG chatbot with persistent memory and document Q&A using LangChain, Groq, and FAISS — live for a paying client on Streamlit Cloud. Built FastAPI backends with relational DB integration for stateful conversation management.",
+        desc:"Delivered a production RAG chatbot with persistent memory and document Q&A using LangChain, Groq, and FAISS — live for a paying client on Streamlit Cloud. FastAPI backends with relational DB for stateful conversation management.",
         tags:["LangChain","Groq","FAISS","Streamlit","FastAPI"],
         badge:"Completed", badgeClass:"badge-done",
         link:"https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/", linkText:"Live Demo ↗"
@@ -68,7 +89,7 @@
         period:"Jul 2024 — Oct 2024", side:"left",
         company:"NKU Technologies",
         role:"Machine Learning Engineer Intern · Lahore",
-        desc:"Built YOLOv8 real-time object detection pipelines with OpenCV — owned the full ML lifecycle: data preparation, model training, evaluation, and deployment via FastAPI. Optimised Computer Vision inference APIs for low latency in live video stream environments.",
+        desc:"Built YOLOv8 real-time object detection pipelines with OpenCV — owned the full ML lifecycle: data prep, training, evaluation, and FastAPI deployment. Optimised inference for low latency in live video stream environments.",
         tags:["YOLOv8","OpenCV","FastAPI","MongoDB"],
         badge:null
       },
@@ -76,7 +97,7 @@
         period:"Oct 2021 — Sep 2025", side:"right",
         company:"University of Management & Technology",
         role:"BS Computer Science · CGPA 3.35 · Teaching Assistant",
-        desc:"Graduated with specialisation in AI & Computer Vision. Teaching Assistant for Artificial Intelligence and Data Structures — conducted office hours and graded technical work. Recipient of Best Academic Result Award in 2023 & 2025.",
+        desc:"Graduated specialising in AI & Computer Vision. TA for Artificial Intelligence and Data Structures — conducted office hours and graded technical assignments. Best Academic Result Award 2023 & 2025.",
         tags:["AI","DSA","Python","Teaching"],
         badge:"Education", badgeClass:"badge-edu"
       },
@@ -85,19 +106,19 @@
     const PROJECTS = [
       {
         id:1, feat:true,
-        img:"m_links_project.png", imgAlt:"MLinks Real Estate",
+        img:"m_links_project.png",
         chip:"🌐 Live Business", chipClass:"pch-live",
         title:"MLinks Real Estate Platform",
-        desc:"Full-stack PropTech platform with AI lead-qualification chatbot — 6 DHA cities, live users, 24/7 zero human intervention. Complete platform built from scratch end-to-end in a single contract.",
+        desc:"Full-stack PropTech platform with AI lead-qualification chatbot — 6 DHA cities, live users, 24/7 zero human intervention. Complete platform built from scratch in a single contract.",
         tags:["PHP","MySQL","LangChain","AI Chatbot","WhatsApp CRM"],
         links:[{ label:"Visit Live Site ↗", href:"https://mlinksrealestate.com/", ghost:false }]
       },
       {
         id:2, feat:false,
-        img:"ai_chatbot.png", imgAlt:"AI Chatbot",
+        img:"ai_chatbot.png",
         chip:"🔥 Live Demo", chipClass:"pch-demo",
         title:"AI Assistant — LangChain + RAG",
-        desc:"Production chatbot for a real client. Persistent memory, document Q&A, streaming responses, and persona switching. Built and deployed on Streamlit Cloud.",
+        desc:"Production chatbot for a real client. Persistent memory, document Q&A, streaming, persona switching. Live on Streamlit Cloud.",
         tags:["LangChain","Groq","RAG","FAISS","Streamlit"],
         links:[
           { label:"Live Demo ↗", href:"https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/", ghost:false },
@@ -106,80 +127,315 @@
       },
       {
         id:3, feat:false,
-        img:"AI-Based-Attendance-System-scaled.jpeg", imgAlt:"Attendance System",
-        chip:"🎓 FYP — UMT 2025", chipClass:"pch-fyp",
+        img:"AI-Based-Attendance-System-scaled.jpeg",
+        chip:"🎓 FYP 2025", chipClass:"pch-fyp",
         title:"AI Attendance System",
-        desc:"96% facial recognition accuracy. AWS EC2 + GPU, 50+ students in real-time. React dashboard + automated lighting alerts.",
+        desc:"96% facial recognition accuracy. AWS EC2 + GPU, 50+ students real-time. React dashboard + automated lighting alerts.",
         tags:["YOLOv8","DeepFace","FastAPI","React","Docker","AWS"],
         links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/Attendance-system-fyp", ghost:false }]
       },
       {
         id:4, feat:false,
-        img:"ai_chatbot.png", imgAlt:"Email Automation",
+        img:"ai_chatbot.png",
         chip:"⚡ Live Pipeline", chipClass:"pch-live",
         title:"AI Email Automation Pipeline",
-        desc:"n8n + Groq — classifies emails into 6 categories, auto-drafts replies, pings Slack, logs to Google Sheets. Full retry & error handling.",
+        desc:"n8n + Groq — classifies emails into 6 categories, auto-drafts replies, pings Slack, logs to Google Sheets with retry & error handling.",
         tags:["n8n","Groq","Gmail API","Slack","Google Sheets"],
         links:[]
       },
       {
         id:5, feat:false,
-        img:"hygiene.jpeg", imgAlt:"Hygiene Monitor",
+        img:"hygiene.jpeg",
         chip:"Computer Vision", chipClass:"pch-default",
         title:"Hygiene Compliance Monitor",
-        desc:"Custom YOLOv8 — 94% detection accuracy, live camera feeds, Streamlit dashboard for real-time workplace safety monitoring.",
+        desc:"Custom YOLOv8 — 94% detection accuracy, live camera feeds, real-time Streamlit dashboard for workplace safety.",
         tags:["YOLOv8","OpenCV","Streamlit"],
         links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/hygiene-compliance-detection", ghost:false }]
       },
       {
         id:6, feat:false,
-        img:"preprocessing_pipeline.png", imgAlt:"ML Pipeline",
+        img:"preprocessing_pipeline.png",
         chip:"Engineering", chipClass:"pch-default",
         title:"ML Data Preprocessing Pipeline",
-        desc:"End-to-end data engineering + EDA — missing values, feature engineering, outlier detection, and automated reporting.",
+        desc:"End-to-end data engineering + EDA — missing values, feature engineering, outlier detection, automated reporting.",
         tags:["Pandas","EDA","Python","scikit-learn"],
         links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/ml-data-preprocessing-pipeline", ghost:false }]
       },
     ];
 
-    const TECH_ROW1 = [
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", label:"Python" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", label:"TensorFlow" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", label:"FastAPI" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", label:"Docker" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", label:"React" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", label:"MongoDB" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", label:"AWS EC2" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg", label:"OpenCV" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", label:"MySQL" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg", label:"PyTorch" },
-    ];
-    const TECH_ROW2 = [
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg", label:"Pandas" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", label:"JavaScript" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", label:"Linux" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", label:"Git" },
-      { img:"https://huggingface.co/front/assets/huggingface_logo-noborder.svg", label:"HuggingFace" },
-      { img:"https://streamlit.io/images/brand/streamlit-mark-color.svg", label:"Streamlit" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg", label:"SQLite" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", label:"HTML5" },
-      { img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", label:"CSS3" },
-    ];
-
-    const TICKER = [
+    const TICKER_WORDS = [
+      "LangChain","RAG Pipelines","YOLOv8","FastAPI","AWS EC2",
+      "LLaMA 3.3","Computer Vision","Docker","DeepFace","Groq",
+      "TensorFlow","Agentic AI","HuggingFace","n8n","Streamlit",
       "LangChain","RAG Pipelines","YOLOv8","FastAPI","AWS EC2",
       "LLaMA 3.3","Computer Vision","Docker","DeepFace","Groq",
       "TensorFlow","Agentic AI","HuggingFace","n8n","Streamlit",
     ];
 
-    /* ═══════════════ HOOKS ═══════════════ */
+    /* ════════════════════════════════════════════
+       3D GLOBE COMPONENT
+    ════════════════════════════════════════════ */
+    function SkillsGlobe({ skills }) {
+      const canvasRef = useRef(null);
+      const stateRef  = useRef({
+        items: [], rotX: 0.3, rotY: 0, velX: 0, velY: 0.003,
+        dragging: false, lastX: 0, lastY: 0, lastMX: 0, lastMY: 0,
+        hovered: -1, images: []
+      });
+      const rafRef = useRef(null);
+
+      /* distribute points on sphere using Fibonacci lattice */
+      const initItems = useCallback(() => {
+        const n = skills.length;
+        const golden = Math.PI * (3 - Math.sqrt(5));
+        return skills.map((sk, i) => {
+          const y   = 1 - (i / (n - 1)) * 2;
+          const r   = Math.sqrt(1 - y * y);
+          const th  = golden * i;
+          return { ...sk, ox: Math.cos(th)*r, oy: y, oz: Math.sin(th)*r };
+        });
+      }, [skills]);
+
+      /* preload images */
+      useEffect(() => {
+        const imgs = skills.map(sk => {
+          const im = new Image();
+          im.crossOrigin = "anonymous";
+          im.src = sk.img;
+          return im;
+        });
+        stateRef.current.images = imgs;
+        stateRef.current.items  = initItems();
+      }, [skills, initItems]);
+
+      /* main render loop */
+      useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const R   = 240; /* globe radius */
+
+        const resize = () => {
+          const size = Math.min(canvas.parentElement.clientWidth, 560);
+          canvas.width  = size;
+          canvas.height = size;
+        };
+        resize();
+        window.addEventListener('resize', resize);
+
+        const draw = () => {
+          const s   = stateRef.current;
+          const W   = canvas.width, H = canvas.height;
+          const cx  = W / 2, cy = H / 2;
+          const r   = Math.min(W, H) / 2 * 0.82;
+
+          ctx.clearRect(0, 0, W, H);
+
+          /* ── auto-rotate ── */
+          if (!s.dragging) {
+            s.velX *= 0.97;
+            s.velY  = s.velY * 0.97 + 0.003;
+          }
+          s.rotX += s.velX;
+          s.rotY += s.velY;
+
+          /* ── rotation matrices ── */
+          const cosX = Math.cos(s.rotX), sinX = Math.sin(s.rotX);
+          const cosY = Math.cos(s.rotY), sinY = Math.sin(s.rotY);
+
+          const project = (ox, oy, oz) => {
+            /* rotate Y */
+            const x1 = ox * cosY - oz * sinY;
+            const z1 = ox * sinY + oz * cosY;
+            /* rotate X */
+            const y2 = oy * cosX - z1 * sinX;
+            const z2 = oy * sinX + z1 * cosX;
+            return { sx: cx + x1 * r, sy: cy + y2 * r, depth: z2 };
+          };
+
+          /* ── draw faint wireframe circle ── */
+          const drawCircle = (axis) => {
+            ctx.beginPath();
+            for (let a = 0; a <= Math.PI * 2; a += 0.05) {
+              let ox, oy, oz;
+              if (axis === 0) { ox = Math.cos(a); oy = Math.sin(a); oz = 0; }
+              else if (axis === 1) { ox = Math.cos(a); oy = 0; oz = Math.sin(a); }
+              else { ox = 0; oy = Math.cos(a); oz = Math.sin(a); }
+              const p = project(ox, oy, oz);
+              a === 0 ? ctx.moveTo(p.sx, p.sy) : ctx.lineTo(p.sx, p.sy);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = 'rgba(59,130,246,0.08)';
+            ctx.lineWidth   = 1;
+            ctx.stroke();
+          };
+          drawCircle(0); drawCircle(1); drawCircle(2);
+
+          /* ── sort by depth (painter's algorithm) ── */
+          const projected = s.items.map((item, i) => {
+            const p = project(item.ox, item.oy, item.oz);
+            return { ...item, ...p, idx: i };
+          }).sort((a, b) => a.depth - b.depth);
+
+          const mx = s.hovered;
+
+          projected.forEach(item => {
+            const { sx, sy, depth, idx } = item;
+            /* depth-based opacity & scale */
+            const t     = (depth + 1) / 2;      /* 0 (back) → 1 (front) */
+            const scale = 0.45 + t * 0.65;
+            const alpha = 0.25 + t * 0.75;
+            const isHov = idx === mx;
+
+            const boxW  = isHov ? 84 : 68;
+            const boxH  = isHov ? 84 : 68;
+            const imgS  = isHov ? 34 : 26;
+            const fSz   = isHov ? 10 : 8.5;
+
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            ctx.translate(sx, sy);
+            ctx.scale(scale, scale);
+
+            /* pill bg */
+            const bw = boxW, bh = boxH;
+            const br = 14;
+            ctx.beginPath();
+            ctx.roundRect(-bw/2, -bh/2, bw, bh, br);
+
+            if (isHov) {
+              ctx.fillStyle = 'rgba(59,130,246,0.22)';
+              ctx.strokeStyle = 'rgba(59,130,246,0.8)';
+              ctx.lineWidth   = 1.5;
+            } else {
+              ctx.fillStyle = `rgba(11,16,28,${0.7 + t * 0.25})`;
+              ctx.strokeStyle = `rgba(255,255,255,${0.06 + t * 0.1})`;
+              ctx.lineWidth   = 1;
+            }
+            ctx.fill();
+            ctx.stroke();
+
+            /* icon */
+            const img = s.images[item.idx !== undefined ? item.idx : 0];
+            if (img && img.complete && img.naturalWidth) {
+              ctx.drawImage(img, -imgS/2, -bh/2 + 10, imgS, imgS);
+            }
+
+            /* label */
+            ctx.fillStyle   = isHov ? '#fff' : `rgba(241,245,249,${0.6 + t * 0.4})`;
+            ctx.font        = `${fSz}px 'Outfit', sans-serif`;
+            ctx.textAlign   = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.fillText(item.label, 0, bh/2 - 6);
+
+            ctx.restore();
+          });
+
+          /* ── drag hint ── */
+          ctx.save();
+          ctx.globalAlpha = 0.3;
+          ctx.fillStyle   = 'rgba(148,163,184,1)';
+          ctx.font        = '11px Outfit, sans-serif';
+          ctx.textAlign   = 'center';
+          ctx.fillText('⊕ drag to explore', W/2, H - 10);
+          ctx.restore();
+
+          rafRef.current = requestAnimationFrame(draw);
+        };
+
+        draw();
+
+        /* ── pointer events ── */
+        const getPos = e => {
+          const rect = canvas.getBoundingClientRect();
+          if (e.touches) return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
+          return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+        };
+
+        const onDown = e => {
+          const { x, y } = getPos(e);
+          stateRef.current.dragging = true;
+          stateRef.current.lastX = x;
+          stateRef.current.lastY = y;
+          stateRef.current.lastMX = x;
+          stateRef.current.lastMY = y;
+          stateRef.current.velX = 0;
+          stateRef.current.velY = 0;
+        };
+
+        const onMove = e => {
+          e.preventDefault();
+          const { x, y } = getPos(e);
+          const s = stateRef.current;
+          if (s.dragging) {
+            const dx = x - s.lastX;
+            const dy = y - s.lastY;
+            s.velY = dx * 0.008;
+            s.velX = dy * 0.008;
+            s.rotY += dx * 0.008;
+            s.rotX += dy * 0.008;
+            s.lastX = x;
+            s.lastY = y;
+          }
+          /* hit test for hover */
+          const W = canvas.width, H = canvas.height;
+          const cx = W/2, cy = H/2;
+          const r  = Math.min(W,H)/2 * 0.82;
+          const cosX = Math.cos(s.rotX), sinX = Math.sin(s.rotX);
+          const cosY = Math.cos(s.rotY), sinY = Math.sin(s.rotY);
+          let best = -1, bestD = 999;
+          s.items.forEach((item, i) => {
+            const x1 = item.ox * cosY - item.oz * sinY;
+            const z1 = item.ox * sinY + item.oz * cosY;
+            const y2 = item.oy * cosX - z1 * sinX;
+            const sx = cx + x1 * r;
+            const sy = cy + y2 * r;
+            const d  = Math.hypot(x - sx, y - sy);
+            if (d < 44 && d < bestD) { bestD = d; best = i; }
+          });
+          s.hovered = best;
+        };
+
+        const onUp = () => { stateRef.current.dragging = false; };
+        const onLeave = () => { stateRef.current.hovered = -1; };
+
+        canvas.addEventListener('mousedown',  onDown);
+        canvas.addEventListener('mousemove',  onMove);
+        canvas.addEventListener('mouseup',    onUp);
+        canvas.addEventListener('mouseleave', onLeave);
+        canvas.addEventListener('touchstart', onDown, { passive:true });
+        canvas.addEventListener('touchmove',  onMove, { passive:false });
+        canvas.addEventListener('touchend',   onUp);
+
+        return () => {
+          cancelAnimationFrame(rafRef.current);
+          window.removeEventListener('resize', resize);
+          canvas.removeEventListener('mousedown',  onDown);
+          canvas.removeEventListener('mousemove',  onMove);
+          canvas.removeEventListener('mouseup',    onUp);
+          canvas.removeEventListener('mouseleave', onLeave);
+          canvas.removeEventListener('touchstart', onDown);
+          canvas.removeEventListener('touchmove',  onMove);
+          canvas.removeEventListener('touchend',   onUp);
+        };
+      }, []);
+
+      return (
+        <div className="globe-wrap">
+          <canvas ref={canvasRef} className="globe-canvas" />
+        </div>
+      );
+    }
+
+    /* ════════════════════════════════════════════
+       HOOKS
+    ════════════════════════════════════════════ */
     function useScrollReveal() {
       useEffect(() => {
-        const els = document.querySelectorAll('.reveal');
         const io = new IntersectionObserver(entries => {
           entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        els.forEach(el => io.observe(el));
+        }, { threshold: 0.1, rootMargin:'0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
         return () => io.disconnect();
       }, []);
     }
@@ -189,98 +445,93 @@
         const dot  = document.getElementById('cursor');
         const ring = document.getElementById('cursor-ring');
         if (!dot || !ring) return;
-        let mx=0, my=0, rx=0, ry=0, raf;
-        const onMove = e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; };
-        const animRing = () => {
-          rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
+        let mx=0,my=0,rx=0,ry=0,raf;
+        const move = e => { mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; };
+        const anim = () => {
+          rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
           ring.style.left=rx+'px'; ring.style.top=ry+'px';
-          raf = requestAnimationFrame(animRing);
+          raf=requestAnimationFrame(anim);
         };
-        document.addEventListener('mousemove', onMove);
-        animRing();
-        const addHover = () => { dot.classList.add('cursor-hover'); ring.classList.add('cursor-hover'); };
-        const rmHover  = () => { dot.classList.remove('cursor-hover'); ring.classList.remove('cursor-hover'); };
-        document.querySelectorAll('a,button').forEach(el => {
-          el.addEventListener('mouseenter', addHover);
-          el.addEventListener('mouseleave', rmHover);
+        document.addEventListener('mousemove', move);
+        anim();
+        const addH=()=>{dot.classList.add('cursor-hover');ring.classList.add('cursor-hover');};
+        const rmH =()=>{dot.classList.remove('cursor-hover');ring.classList.remove('cursor-hover');};
+        document.querySelectorAll('a,button,[data-hover]').forEach(el=>{
+          el.addEventListener('mouseenter',addH);
+          el.addEventListener('mouseleave',rmH);
         });
-        return () => { document.removeEventListener('mousemove', onMove); cancelAnimationFrame(raf); };
-      }, []);
+        return ()=>{ document.removeEventListener('mousemove',move); cancelAnimationFrame(raf); };
+      },[]);
     }
 
-    function useMeshCanvas() {
+    function useMeshBg() {
       useEffect(() => {
         const canvas = document.getElementById('mesh-canvas');
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
-        let W, H, mx=0.5, my=0.5, raf;
-        const resize = () => { W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; };
+        let W,H,mx=0.5,my=0.5,raf,t=0;
+        const resize=()=>{ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; };
         resize();
-        window.addEventListener('resize', resize);
-        document.addEventListener('mousemove', e => { mx=e.clientX/window.innerWidth; my=e.clientY/window.innerHeight; });
-        const orbs = [
-          { x:0.15, y:0.2,  r:0.45, c:[59,130,246],  speed:0.0008 },
-          { x:0.8,  y:0.15, r:0.40, c:[139,92,246],  speed:0.0012 },
-          { x:0.5,  y:0.75, r:0.35, c:[6,182,212],   speed:0.001  },
-          { x:0.85, y:0.8,  r:0.30, c:[16,185,129],  speed:0.0009 },
+        window.addEventListener('resize',resize);
+        document.addEventListener('mousemove',e=>{ mx=e.clientX/window.innerWidth; my=e.clientY/window.innerHeight; });
+        const orbs=[
+          {x:.15,y:.2, r:.5,c:[59,130,246], s:.0007},
+          {x:.8, y:.15,r:.42,c:[139,92,246],s:.001},
+          {x:.5, y:.78,r:.38,c:[6,182,212], s:.0009},
+          {x:.85,y:.8, r:.32,c:[16,185,129],s:.0008},
         ];
-        let t=0;
-        const draw = () => {
+        const draw=()=>{
           t++;
           ctx.clearRect(0,0,W,H);
-          orbs.forEach((o,i) => {
-            const ox = o.x + Math.sin(t*o.speed + i) * 0.12 + (mx-0.5)*0.06;
-            const oy = o.y + Math.cos(t*o.speed + i*1.3) * 0.1 + (my-0.5)*0.06;
-            const grad = ctx.createRadialGradient(ox*W, oy*H, 0, ox*W, oy*H, o.r*Math.max(W,H));
-            grad.addColorStop(0, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},0.18)`);
-            grad.addColorStop(1, `rgba(${o.c[0]},${o.c[1]},${o.c[2]},0)`);
-            ctx.beginPath();
-            ctx.fillStyle = grad;
-            ctx.arc(ox*W, oy*H, o.r*Math.max(W,H), 0, Math.PI*2);
-            ctx.fill();
+          orbs.forEach((o,i)=>{
+            const ox=o.x+Math.sin(t*o.s+i)*.1+(mx-.5)*.05;
+            const oy=o.y+Math.cos(t*o.s+i*1.3)*.08+(my-.5)*.05;
+            const g=ctx.createRadialGradient(ox*W,oy*H,0,ox*W,oy*H,o.r*Math.max(W,H));
+            g.addColorStop(0,`rgba(${o.c},0.18)`);
+            g.addColorStop(1,`rgba(${o.c},0)`);
+            ctx.fillStyle=g;
+            ctx.fillRect(0,0,W,H);
           });
-          raf = requestAnimationFrame(draw);
+          raf=requestAnimationFrame(draw);
         };
         draw();
-        return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
-      }, []);
+        return ()=>{ cancelAnimationFrame(raf); window.removeEventListener('resize',resize); };
+      },[]);
     }
 
     function useNavScroll() {
-      const [scrolled, setScrolled] = useState(false);
-      const [active, setActive] = useState('');
-      useEffect(() => {
-        const onScroll = () => {
-          setScrolled(window.scrollY > 60);
-          const secs = ['about','skills','experience','projects','contact'];
-          let cur = '';
-          secs.forEach(id => { const el=document.getElementById(id); if(el && window.scrollY>=el.offsetTop-160) cur=id; });
+      const [scrolled,setScrolled]=useState(false);
+      const [active,setActive]=useState('');
+      useEffect(()=>{
+        const fn=()=>{
+          setScrolled(window.scrollY>60);
+          const ids=['hero','skills','experience','projects','contact'];
+          let cur='';
+          ids.forEach(id=>{ const el=document.getElementById(id); if(el&&window.scrollY>=el.offsetTop-160) cur=id; });
           setActive(cur);
         };
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-      }, []);
-      return { scrolled, active };
+        window.addEventListener('scroll',fn);
+        return ()=>window.removeEventListener('scroll',fn);
+      },[]);
+      return {scrolled,active};
     }
 
-    /* ═══════════════ COMPONENTS ═══════════════ */
-
-    /* Animated hero title */
+    /* ════════════════════════════════════════════
+       SMALL COMPONENTS
+    ════════════════════════════════════════════ */
     function HeroTitle() {
-      const lines = [
-        { text:"Muhammad", class:"line" },
-        { text:"Shahan",   class:"line grad" },
-        { text:"Butt.",    class:"line line-stroke" },
+      const lines=[
+        {text:"Muhammad",cls:""},
+        {text:"Shahan",  cls:"grad"},
+        {text:"Butt.",   cls:"line-stroke"},
       ];
       return (
         <h1 className="hero-h1">
-          {lines.map((line, li) => (
-            <span key={li} className={line.class} style={{display:'block'}}>
-              {line.text.split('').map((ch, ci) => (
-                <span key={ci} className="char" style={{
-                  animationDelay: `${(li * line.text.length + ci) * 0.04 + 0.3}s`
-                }}>
-                  {ch === ' ' ? '\u00A0' : ch}
+          {lines.map((line,li)=>(
+            <span key={li} className={`hl ${line.cls}`}>
+              {line.text.split('').map((ch,ci)=>(
+                <span key={ci} className="char" style={{animationDelay:`${(li*8+ci)*0.04+0.2}s`}}>
+                  {ch===''?'\u00A0':ch}
                 </span>
               ))}
             </span>
@@ -289,16 +540,14 @@
       );
     }
 
-    /* Ticker */
     function Ticker() {
-      const doubled = [...TICKER, ...TICKER];
       return (
         <div className="ticker-section">
           <div className="ticker-track">
-            {doubled.map((item, i) => (
+            {TICKER_WORDS.map((w,i)=>(
               <div key={i} className="ticker-item">
-                <span className="ticker-word">{item}</span>
-                <span className="ticker-dot"></span>
+                <span className="ticker-word">{w}</span>
+                <span className="ticker-dot"/>
               </div>
             ))}
           </div>
@@ -306,48 +555,7 @@
       );
     }
 
-    /* Marquee row */
-    function MarqueeRow({ items, reverse, cls }) {
-      const doubled = [...items, ...items];
-      return (
-        <div className="mq-row">
-          <div className={`mq-track ${reverse ? 'mq-track-rev' : 'mq-track-fwd'}`}>
-            {doubled.map((t, i) => (
-              <div key={i} className={`mpill ${cls||''}`}>
-                <img src={t.img} alt={t.label} />
-                <span>{t.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      );
-    }
-
-    /* Timeline row */
-    function TLRow({ item }) {
-      const isLeft = item.side === 'left';
-      return (
-        <div className={`tl-row ${isLeft ? 'tl-left' : 'tl-right'} reveal ${isLeft ? '' : 'd1'}`}>
-          {isLeft && (
-            <div className="tl-card">
-              <TLCardInner item={item} />
-            </div>
-          )}
-          <div className="tl-dot-wrap">
-            <div className="tl-dot"><div className="tl-core"></div></div>
-          </div>
-          {!isLeft && (
-            <div className="tl-card">
-              <TLCardInner item={item} />
-            </div>
-          )}
-          {isLeft && <div className="tl-spacer"></div>}
-          {!isLeft && <div className="tl-spacer" style={{order:-1}}></div>}
-        </div>
-      );
-    }
-
-    function TLCardInner({ item }) {
+    function TLCard({ item }) {
       return (
         <>
           <div className="tl-meta">
@@ -355,36 +563,41 @@
             {item.badge && <span className={`tl-badge ${item.badgeClass}`}>{item.badge}</span>}
           </div>
           <div className="tl-company">{item.company}</div>
-          <div className="tl-role"><span className="role-dot"></span>{item.role}</div>
+          <div className="tl-role"><span className="role-dot"/>{item.role}</div>
           <p className="tl-desc">{item.desc}</p>
-          <div className="tl-tags">
-            {item.tags.map(t => <span key={t} className="tl-tag">{t}</span>)}
-          </div>
+          <div className="tl-tags">{item.tags.map(t=><span key={t} className="tl-tag">{t}</span>)}</div>
           {item.link && <a href={item.link} target="_blank" rel="noopener" className="tl-link">{item.linkText}</a>}
         </>
       );
     }
 
-    /* Project card */
     function ProjCard({ p }) {
       return (
-        <div className={`proj-card ${p.feat ? 'proj-feat' : ''} reveal`}>
+        <div className={`proj-card ${p.feat?'proj-feat':''} reveal`}>
           <div className="proj-img">
-            <img src={p.img} alt={p.imgAlt} />
-            <div className="proj-img-overlay"></div>
+            <img src={p.img} alt={p.title}/>
+            <div className="proj-overlay">
+              <div className="proj-overlay-content">
+                <div className="proj-overlay-title">{p.title}</div>
+                <div className="proj-overlay-links">
+                  {p.links.map(l=>(
+                    <a key={l.label} href={l.href} target="_blank" rel="noopener"
+                       className={`overlay-btn ${l.ghost?'overlay-btn-ghost':''}`}>{l.label}</a>
+                  ))}
+                </div>
+              </div>
+            </div>
             <span className={`proj-chip ${p.chipClass}`}>{p.chip}</span>
           </div>
           <div className="proj-body">
             <div className="proj-idx">Project {String(p.id).padStart(2,'0')}</div>
             <h3>{p.title}</h3>
             <p>{p.desc}</p>
-            <div className="proj-tags">
-              {p.tags.map(t => <span key={t} className="proj-tag">{t}</span>)}
-            </div>
+            <div className="proj-tags">{p.tags.map(t=><span key={t} className="proj-tag">{t}</span>)}</div>
             <div className="proj-foot">
-              {p.links.map(l => (
+              {p.links.map(l=>(
                 <a key={l.label} href={l.href} target="_blank" rel="noopener"
-                   className={`plink ${l.ghost ? 'plink-ghost' : ''}`}>{l.label}</a>
+                   className={`plink ${l.ghost?'plink-ghost':''}`}>{l.label}</a>
               ))}
             </div>
           </div>
@@ -392,39 +605,34 @@
       );
     }
 
-    /* ═══════════════ APP ═══════════════ */
+    /* ════════════════════════════════════════════
+       APP
+    ════════════════════════════════════════════ */
     function App() {
       useScrollReveal();
       useCursor();
-      useMeshCanvas();
-      const { scrolled, active } = useNavScroll();
+      useMeshBg();
+      const {scrolled,active}=useNavScroll();
 
       return (
         <>
-          {/* Cursor */}
-          <div id="cursor"></div>
-          <div id="cursor-ring"></div>
-
-          {/* Mesh BG */}
-          <canvas id="mesh-canvas"></canvas>
+          <div id="cursor"/>
+          <div id="cursor-ring"/>
+          <canvas id="mesh-canvas"/>
 
           {/* ── NAV ── */}
-          <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
+          <header className={`nav ${scrolled?'scrolled':''}`}>
             <div className="nav-inner">
-              <a href="#hero" className="nav-logo">
-                <span className="nb">[</span>MSB<span className="nb">]</span>
-              </a>
+              <a href="#hero" className="nav-logo"><span className="nb">[</span>MSB<span className="nb">]</span></a>
               <nav className="nav-links">
-                {['about','skills','experience','projects','contact'].map(id => (
-                  <a key={id} href={`#${id}`}
-                     className={`nav-link ${active===id ? 'active' : ''}`}>
-                    {id.charAt(0).toUpperCase()+id.slice(1)}
+                {['hero','skills','experience','projects','contact'].map(id=>(
+                  <a key={id} href={`#${id}`} className={`nav-link ${active===id?'active':''}`}>
+                    {id==='hero'?'About':id.charAt(0).toUpperCase()+id.slice(1)}
                   </a>
                 ))}
               </nav>
               <a href="mailto:shahansqb@gmail.com" className="nav-hire">
-                <span className="hire-dot"></span>
-                Available — Hire Me
+                <span className="hire-dot"/>Available — Hire Me
               </a>
             </div>
           </header>
@@ -432,42 +640,32 @@
           {/* ── HERO ── */}
           <section className="hero" id="hero">
             <div className="hero-bg-text" aria-hidden="true">AI</div>
-            <div className="hero-content">
-              {/* LEFT */}
+            <div className="hero-content container">
               <div className="hero-left">
                 <div className="hero-status">
-                  <span className="status-pulse"></span>
+                  <span className="status-pulse"/>
                   Open to Work · Available Now
                 </div>
-
-                <HeroTitle />
-
+                <HeroTitle/>
                 <p className="hero-sub">
                   I build AI that ships to production — not just Jupyter notebooks.
-                  LLM chatbots, RAG pipelines &amp; Computer Vision deployed for real clients.
+                  LLM chatbots, RAG pipelines &amp; Computer Vision for real clients.
                   Recently built full PropTech AI at{' '}
-                  <a href="https://mlinksrealestate.com" target="_blank" rel="noopener">
-                    M-Links Real Estate ↗
-                  </a>
+                  <a href="https://mlinksrealestate.com" target="_blank" rel="noopener">M-Links Real Estate ↗</a>
                 </p>
-
                 <div className="btn-row">
-                  <a href="#projects" className="btn-primary">
-                    <span>View My Work</span>
-                    <span className="btn-arrow">→</span>
-                  </a>
+                  <a href="#projects" className="btn-primary"><span>View My Work</span><span className="btn-arrow">→</span></a>
                   <a href="mailto:shahansqb@gmail.com" className="btn-secondary">Let's Talk</a>
                 </div>
-
                 <div className="hero-stats">
                   {[
-                    { val:"1+",  key:"Years in\nProduction" },
-                    { val:"5",   key:"Live\nDeploys" },
-                    { val:"96%", key:"FYP\nAccuracy" },
-                    { val:"6",   key:"Cities\nServed" },
-                  ].map((s, i) => (
+                    {val:"1+",  key:"Years in\nProduction"},
+                    {val:"5",   key:"Live\nDeploys"},
+                    {val:"96%", key:"FYP\nAccuracy"},
+                    {val:"6",   key:"Cities\nServed"},
+                  ].map((s,i)=>(
                     <React.Fragment key={s.val}>
-                      {i > 0 && <div className="hstat-div"></div>}
+                      {i>0&&<div className="hstat-div"/>}
                       <div className="hstat">
                         <div className="hstat-val">{s.val}</div>
                         <div className="hstat-key">{s.key}</div>
@@ -476,18 +674,14 @@
                   ))}
                 </div>
               </div>
-
-              {/* RIGHT — PHOTO */}
               <div className="hero-right">
                 <div className="photo-card">
-                  {/* floating chips */}
                   <div className="float-chip fc-1">🤖 AI Engineer</div>
                   <div className="float-chip fc-2">👁 Computer Vision</div>
                   <div className="float-chip fc-3">🧠 LLM / RAG</div>
-
                   <div className="photo-inner">
-                    <img src="tech_shahan.jpeg" alt="Muhammad Shahan Butt" />
-                    <div className="photo-gradient"></div>
+                    <img src="tech_shahan.jpeg" alt="Muhammad Shahan Butt"/>
+                    <div className="photo-gradient"/>
                     <div className="photo-meta">
                       <div>
                         <div className="photo-name">Muhammad Shahan Butt</div>
@@ -502,7 +696,7 @@
           </section>
 
           {/* ── TICKER ── */}
-          <Ticker />
+          <Ticker/>
 
           {/* ── SKILLS ── */}
           <section className="skills-section" id="skills">
@@ -510,35 +704,31 @@
               <div className="section-head reveal">
                 <div className="eyebrow">Expertise</div>
                 <h2 className="section-title">Technical <span className="grad">Mastery</span></h2>
-                <p className="section-sub">Three core pillars — all production-tested, all deployed live.</p>
+                <p className="section-sub">Three pillars — all production-tested, all deployed live.</p>
               </div>
 
-              <div className="skills-grid">
-                {SKILLS.map((sk, i) => (
-                  <div key={sk.num} className={`skill-card reveal d${i+1}`}
-                    style={{
-                      '--accent-color': sk.accent,
-                      '--glow-color': sk.glow,
-                      '--tag-bg': sk.tagBg,
-                      '--tag-border': sk.tagBorder,
-                      '--tag-color': sk.tagColor,
-                    }}>
-                    <div className="sk-num">{sk.num} / 03</div>
-                    <div className="sk-icon">{sk.icon}</div>
-                    <h3>{sk.title}</h3>
-                    <p>{sk.sub}</p>
-                    <div className="sk-tags">
-                      {sk.tags.map(t => <span key={t} className="sk-tag">{t}</span>)}
+              {/* GLOBE + CARDS side by side */}
+              <div className="skills-layout">
+                <div className="globe-side reveal">
+                  <SkillsGlobe skills={GLOBE_SKILLS}/>
+                  <div className="globe-hint">Drag to rotate · Hover to explore</div>
+                </div>
+                <div className="cards-side">
+                  {SKILLS_CARDS.map((sk,i)=>(
+                    <div key={sk.num} className={`skill-card reveal d${i+1}`}
+                      style={{
+                        '--accent-color':sk.accent,'--glow-color':sk.glow,
+                        '--tag-bg':sk.tagBg,'--tag-border':sk.tagBorder,'--tag-color':sk.tagColor,
+                      }}>
+                      <div className="sk-num">{sk.num} / 03</div>
+                      <div className="sk-icon">{sk.icon}</div>
+                      <h3>{sk.title}</h3>
+                      <p>{sk.sub}</p>
+                      <div className="sk-tags">{sk.tags.map(t=><span key={t} className="sk-tag">{t}</span>)}</div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* TECH MARQUEE */}
-            <div className="mq-section">
-              <MarqueeRow items={TECH_ROW1} reverse={false} />
-              <MarqueeRow items={TECH_ROW2} reverse={true} cls="mpill-2" />
             </div>
           </section>
 
@@ -548,13 +738,17 @@
               <div className="section-head reveal">
                 <div className="eyebrow">Career</div>
                 <h2 className="section-title">Where I've <span className="grad">Shipped</span></h2>
-                <p className="section-sub">From internship to building live platforms serving real users across 6 cities.</p>
+                <p className="section-sub">From internship to building live platforms serving users across 6 cities.</p>
               </div>
-
               <div className="timeline">
-                <div className="tl-spine"></div>
-                {EXPERIENCE.map((item, i) => (
-                  <TLRow key={i} item={item} />
+                <div className="tl-spine"/>
+                {EXPERIENCE.map((item,i)=>(
+                  <div key={i} className={`tl-row ${item.side==='left'?'tl-left':'tl-right'} reveal ${i%2?'d1':''}`}>
+                    {item.side==='left'&&<div className="tl-card"><TLCard item={item}/></div>}
+                    <div className="tl-dot-wrap"><div className="tl-dot"><div className="tl-core"/></div></div>
+                    {item.side==='right'&&<div className="tl-card"><TLCard item={item}/></div>}
+                    <div className="tl-spacer"/>
+                  </div>
                 ))}
               </div>
             </div>
@@ -568,65 +762,51 @@
                   <div className="eyebrow">Selected Work</div>
                   <h2 className="section-title">Projects That <span className="grad">Ship</span></h2>
                 </div>
-                <a href="https://github.com/Shahanbutt07" target="_blank" rel="noopener" className="all-link">
-                  All repos on GitHub ↗
-                </a>
+                <a href="https://github.com/Shahanbutt07" target="_blank" rel="noopener" className="all-link">All repos →</a>
               </div>
-
               <div className="proj-grid">
-                {PROJECTS.map(p => <ProjCard key={p.id} p={p} />)}
+                {PROJECTS.map(p=><ProjCard key={p.id} p={p}/>)}
               </div>
             </div>
           </section>
 
-          {/* ── HIRE / CTA ── */}
+          {/* ── HIRE ── */}
           <section className="hire-section" id="contact">
             <div className="container">
               <div className="hire-card reveal">
-                <div className="hire-glow"></div>
+                <div className="hire-glow"/>
                 <div className="hire-inner">
                   <div className="hire-left">
-                    <div className="eyebrow" style={{color:'rgba(255,255,255,0.35)'}}>Open for Business</div>
+                    <div className="eyebrow" style={{color:'rgba(255,255,255,.3)'}}>Open for Business</div>
                     <h2 className="hire-title">Have a project <span className="grad">in mind?</span></h2>
-                    <p className="hire-desc">
-                      I take AI ideas from whiteboard to live production — chatbots, vision systems,
-                      LLM backends. Clean code. Real results. Let's build something that ships.
-                    </p>
+                    <p className="hire-desc">I take AI ideas from whiteboard to live production — chatbots, vision systems, LLM backends. Real code. Real results.</p>
                     <a href="mailto:shahansqb@gmail.com" className="btn-primary">
-                      <span>Start a Project</span>
-                      <span className="btn-arrow">→</span>
+                      <span>Start a Project</span><span className="btn-arrow">→</span>
                     </a>
                   </div>
-
                   <div className="hire-right">
                     {[
-                      { icon:"✉", label:"Email", val:"shahansqb@gmail.com", href:"mailto:shahansqb@gmail.com" },
-                      { icon:"in", label:"LinkedIn", val:"shahan-butt-aiengineer", href:"https://www.linkedin.com/in/shahan-butt-aiengineer/", external:true },
-                      { icon:"⌥", label:"GitHub", val:"Shahanbutt07", href:"https://github.com/Shahanbutt07", external:true },
-                    ].map(row => (
-                      <a key={row.label} href={row.href} target={row.external?"_blank":undefined}
-                         rel={row.external?"noopener":undefined} className="hire-row">
+                      {icon:"✉",label:"Email",val:"shahansqb@gmail.com",href:"mailto:shahansqb@gmail.com"},
+                      {icon:"in",label:"LinkedIn",val:"shahan-butt-aiengineer",href:"https://www.linkedin.com/in/shahan-butt-aiengineer/",ext:true},
+                      {icon:"⌥",label:"GitHub",val:"Shahanbutt07",href:"https://github.com/Shahanbutt07",ext:true},
+                    ].map(row=>(
+                      <a key={row.label} href={row.href} target={row.ext?"_blank":undefined}
+                         rel={row.ext?"noopener":undefined} className="hire-row">
                         <div className="hire-row-left">
                           <div className="hire-icon">{row.icon}</div>
-                          <div>
-                            <div className="hire-label">{row.label}</div>
-                            <div className="hire-val">{row.val}</div>
-                          </div>
+                          <div><div className="hire-label">{row.label}</div><div className="hire-val">{row.val}</div></div>
                         </div>
                         <span className="hire-arrow">→</span>
                       </a>
                     ))}
-                    <div className="avail-badge">
-                      <span className="avail-dot"></span>
-                      Available · Full-time &amp; Contract · Remote / Lahore
-                    </div>
+                    <div className="avail-badge"><span className="avail-dot"/>Available · Full-time &amp; Contract · Remote / Lahore</div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* ── CERTIFICATIONS ── */}
+          {/* ── CERTS ── */}
           <section className="cert-section">
             <div className="container">
               <div className="section-head reveal">
@@ -634,51 +814,43 @@
                 <h2 className="section-title"><span className="grad">Certifications</span></h2>
               </div>
               <div className="cert-grid">
-                <div className="cert-card reveal">
-                  <span className="cc-icon">🏆</span>
-                  <h3>Data Science with Python</h3>
-                  <div className="cc-org">Great Learning</div>
-                  <p className="cc-desc">Data mining, predictive modeling, and statistical analysis for AI/ML applications.</p>
-                  <div className="cc-year">July 2023</div>
-                </div>
-                <div className="cert-card reveal d2">
-                  <span className="cc-icon">🎓</span>
-                  <h3>Best Academic Result Award</h3>
-                  <div className="cc-org">University of Management &amp; Technology</div>
-                  <p className="cc-desc">Awarded twice for outstanding academic performance in CS — specialising in AI &amp; Computer Vision.</p>
-                  <div className="cc-year">2023 &amp; 2025</div>
-                </div>
-                <div className="cert-card cert-wip reveal d3">
-                  <span className="cc-icon">🚀</span>
-                  <h3>Currently Learning</h3>
-                  <ul className="wip-list">
-                    <li>LLM Fine-Tuning</li>
-                    <li>Agentic AI Workflows</li>
-                    <li>MLOps Pipelines</li>
-                    <li>ScyllaDB for high-performance data</li>
-                  </ul>
-                  <div className="cc-year" style={{color:'#8b5cf6'}}>More certifications incoming →</div>
-                </div>
+                {[
+                  {icon:"🏆",title:"Data Science with Python",org:"Great Learning",desc:"Data mining, predictive modeling, and statistical analysis for AI/ML applications.",year:"July 2023",cls:""},
+                  {icon:"🎓",title:"Best Academic Result Award",org:"University of Management & Technology",desc:"Awarded twice for outstanding academic performance specialising in AI & Computer Vision.",year:"2023 & 2025",cls:""},
+                  {icon:"🚀",title:"Currently Learning",org:"",desc:"",year:"",cls:"cert-wip",wip:true},
+                ].map((c,i)=>(
+                  <div key={i} className={`cert-card reveal d${i+1} ${c.cls}`}>
+                    <span className="cc-icon">{c.icon}</span>
+                    <h3>{c.title}</h3>
+                    {c.org&&<div className="cc-org">{c.org}</div>}
+                    {c.wip?(
+                      <ul className="wip-list">
+                        {["LLM Fine-Tuning","Agentic AI Workflows","MLOps Pipelines","ScyllaDB"].map(x=><li key={x}>{x}</li>)}
+                      </ul>
+                    ):(
+                      <p className="cc-desc">{c.desc}</p>
+                    )}
+                    <div className="cc-year" style={c.wip?{color:'#8b5cf6'}:{}}>{c.wip?'More incoming →':c.year}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
           {/* ── FOOTER ── */}
           <footer className="footer">
-            <div className="footer-glow"></div>
-            <div className="footer-inner">
+            <div className="footer-glow"/>
+            <div className="footer-inner container">
               <div className="footer-top">
                 <div>
-                  <div className="footer-brand">
-                    <span className="grad">Shahan</span><br/>Butt.
-                  </div>
+                  <div className="footer-brand"><span className="grad">Shahan</span><br/>Butt.</div>
                   <div className="footer-tagline">AI/ML & Computer Vision Engineer · Lahore, PK</div>
                 </div>
                 <div className="footer-nav">
                   <div className="fnav-col">
                     <h4>Navigate</h4>
-                    {['About','Skills','Experience','Projects'].map(l => (
-                      <a key={l} href={`#${l.toLowerCase()}`}>{l}</a>
+                    {['About','Skills','Experience','Projects'].map(l=>(
+                      <a key={l} href={`#${l==='About'?'hero':l.toLowerCase()}`}>{l}</a>
                     ))}
                   </div>
                   <div className="fnav-col">
@@ -699,7 +871,7 @@
       );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
 </body>
 </html>
