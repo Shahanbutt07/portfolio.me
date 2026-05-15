@@ -104,13 +104,14 @@
       },
     ];
 
+    // ONLY HOT PRODUCTION PROJECTS — NO STUDENT STUFF
     const PROJECTS = [
       {
         id:1, feat:true,
         img:"m_links_project.png",
         chip:"🌐 Live Business", chipClass:"pch-live",
         title:"MLinks Real Estate Platform",
-        desc:"Full-stack PropTech platform serving DHA property clients across 6 cities. AI chatbot handles 150+ daily inquiries with zero human handoff. WhatsApp CRM for automated lead nurturing.",
+        desc:"Full-stack PropTech platform serving DHA property clients across 6 cities. AI chatbot handles 150+ daily inquiries with zero human handoff. WhatsApp CRM for automated lead nurturing. Built from scratch in a single contract.",
         tags:["PHP","MySQL","LangChain","AI Chatbot","WhatsApp CRM"],
         links:[{ label:"Visit Live Site ↗", href:"https://mlinksrealestate.com/", ghost:false }]
       },
@@ -119,7 +120,7 @@
         img:"ai_chatbot.png",
         chip:"🔥 Live Demo", chipClass:"pch-demo",
         title:"AI Assistant — LangChain + RAG",
-        desc:"Production RAG chatbot for a real client. Persistent memory, document Q&A, streaming responses, persona switching. Deployed on Streamlit Cloud and HuggingFace Spaces with 99.9% uptime.",
+        desc:"Production RAG chatbot for a real client. Persistent memory, document Q&A, streaming responses, persona switching. Deployed on Streamlit Cloud and HuggingFace Spaces with 99.9% uptime. FastAPI backend with PostgreSQL.",
         tags:["LangChain","Groq","RAG","FAISS","Streamlit","FastAPI"],
         links:[
           { label:"Live Demo ↗", href:"https://ai-chatbot-exlwrxmh6omrishexm7cdd.streamlit.app/", ghost:false },
@@ -129,30 +130,12 @@
       },
       {
         id:3, feat:false,
-        img:"AI-Based-Attendance-System-scaled.jpeg",
-        chip:"🎓 Production CV", chipClass:"pch-fyp",
-        title:"Real-Time Facial Recognition System",
-        desc:"96% accuracy facial recognition system processing 50+ students in real-time. Deployed on AWS EC2 with GPU acceleration. React dashboard with automated alert system. Full Docker containerization.",
-        tags:["YOLOv8","DeepFace","FastAPI","React","Docker","AWS EC2"],
-        links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/Attendance-system-fyp", ghost:false }]
-      },
-      {
-        id:4, feat:false,
-        img:"ai_chatbot.png",
+        img:"ai_email_automation.png",  // <-- ADD YOUR AUTOMATION IMAGE HERE
         chip:"⚡ Live Pipeline", chipClass:"pch-live",
         title:"AI Email Automation Pipeline",
         desc:"Intelligent email processing pipeline classifying incoming emails into 6 categories, auto-drafting professional replies, pinging Slack channels, and logging to Google Sheets. Built-in retry logic and error handling for production reliability.",
         tags:["n8n","Groq","Gmail API","Slack","Google Sheets"],
         links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/n8n-email-automation", ghost:false }]
-      },
-      {
-        id:5, feat:false,
-        img:"hygiene.jpeg",
-        chip:"Computer Vision", chipClass:"pch-default",
-        title:"Hygiene Compliance Monitor",
-        desc:"Custom YOLOv8 object detection achieving 94% accuracy on live camera feeds. Real-time Streamlit dashboard for workplace safety monitoring. Edge-optimized inference for low-latency alerts.",
-        tags:["YOLOv8","OpenCV","Streamlit"],
-        links:[{ label:"GitHub ↗", href:"https://github.com/Shahanbutt07/hygiene-compliance-detection", ghost:false }]
       },
     ];
 
@@ -163,14 +146,14 @@
     ];
 
     /* ════════════════════════════════════════════
-       3D GLOBE COMPONENT
+       3D GLOBE COMPONENT — SLOWED DOWN
     ════════════════════════════════════════════ */
     function SkillsGlobe({ skills }) {
       const canvasRef = useRef(null);
       const stateRef  = useRef({
-        items: [], rotX: 0.3, rotY: 0, velX: 0, velY: 0.003,
+        items: [], rotX: 0.3, rotY: 0, velX: 0, velY: 0.0008,
         dragging: false, lastX: 0, lastY: 0, lastMX: 0, lastMY: 0,
-        hovered: -1, images: []
+        hovered: -1, images: [], isInteracted: false
       });
       const rafRef = useRef(null);
 
@@ -217,9 +200,18 @@
 
           ctx.clearRect(0, 0, W, H);
 
-          if (!s.dragging) {
-            s.velX *= 0.97;
-            s.velY  = s.velY * 0.97 + 0.003;
+          // SLOW AUTO-ROTATE: only when not dragging and not interacted
+          if (!s.dragging && !s.isInteracted) {
+            s.velX *= 0.98;
+            s.velY  = s.velY * 0.98 + 0.0008;  // VERY SLOW base rotation
+          } else if (!s.dragging) {
+            // After interaction, slow decay to gentle rotation
+            s.velX *= 0.95;
+            s.velY *= 0.95;
+            if (Math.abs(s.velY) < 0.0008) {
+              s.velY = 0.0008;
+              s.isInteracted = false;  // reset after settling
+            }
           }
           s.rotX += s.velX;
           s.rotY += s.velY;
@@ -329,6 +321,7 @@
         const onDown = e => {
           const { x, y } = getPos(e);
           stateRef.current.dragging = true;
+          stateRef.current.isInteracted = true;
           stateRef.current.lastX = x;
           stateRef.current.lastY = y;
           stateRef.current.lastMX = x;
@@ -344,10 +337,10 @@
           if (s.dragging) {
             const dx = x - s.lastX;
             const dy = y - s.lastY;
-            s.velY = dx * 0.008;
-            s.velX = dy * 0.008;
-            s.rotY += dx * 0.008;
-            s.rotX += dy * 0.008;
+            s.velY = dx * 0.004;  // SLOWER drag response
+            s.velX = dy * 0.004;
+            s.rotY += dx * 0.004;
+            s.rotX += dy * 0.004;
             s.lastX = x;
             s.lastY = y;
           }
@@ -493,6 +486,7 @@
        SMALL COMPONENTS
     ════════════════════════════════════════════ */
     function HeroTitle() {
+      // FULL NAME: Muhammad Shahan Butt
       const lines=[
         {text:"Muhammad",cls:""},
         {text:"Shahan",  cls:"grad"},
@@ -625,10 +619,10 @@
                 </div>
                 <div className="hero-stats">
                   {[
-                    {val:"5+",  key:"Live\nDeployments"},
+                    {val:"3+",  key:"Live\nDeployments"},
                     {val:"150+",key:"Daily AI\nInteractions"},
-                    {val:"96%", key:"CV\nAccuracy"},
                     {val:"6",   key:"Cities\nServed"},
+                    {val:"24/7",key:"Systems\nRunning"},
                   ].map((s,i)=><React.Fragment key={s.val}>
                       {i>0&&<div className="hstat-div"/>}
                       <div className="hstat">
@@ -713,7 +707,7 @@
             </div>
           </section>
 
-          {/* ── PROJECTS ── */}
+          {/* ── PROJECTS — ONLY HOT PRODUCTION WORK ── */}
           <section className="projects-section" id="projects">
             <div className="container">
               <div className="proj-hdr reveal">
