@@ -318,7 +318,7 @@ section { position: relative; }
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   background: rgba(7,11,18,.8); overflow: hidden; padding: 16px 0;
 }
-.ticker-track { display: flex; width: max-content; align-items: center; animation: tickerMove 40s linear infinite; }
+.ticker-track { display: flex; width: max-content; align-items: center; animation: tickerMove 25s linear infinite; }
 .ticker-track:hover { animation-play-state: paused; }
 @keyframes tickerMove { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .ticker-item { display: flex; align-items: center; gap: 20px; padding: 0 24px; }
@@ -467,6 +467,9 @@ section { position: relative; }
 .tl-badge { font-size: .62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; }
 .badge-done { background: rgba(16,185,129,.12); color: var(--green); border: 1px solid rgba(16,185,129,.25); }
 .badge-edu  { background: rgba(59,130,246,.12); color: var(--blue);  border: 1px solid rgba(59,130,246,.25); }
+.badge-live { background: rgba(59,130,246,.12); color: var(--blue); border: 1px solid rgba(59,130,246,.25); animation: pulse-live 2s ease-in-out infinite; }
+@keyframes pulse-live { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
 .tl-company { font-size: 1.05rem; font-weight: 800; letter-spacing: -.3px; margin-bottom: 4px; }
 .tl-role { font-size: .78rem; color: var(--blue); font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
 .tl-left .tl-role { justify-content: flex-end; }
@@ -606,7 +609,7 @@ section { position: relative; }
    CERTIFICATIONS
 ═══════════════════════════════════════════════════════ */
 .cert-section { padding: 0 0 120px; }
-.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.cert-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; max-width: 800px; margin: 0 auto; }
 .cert-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--r-lg); padding: 34px;
@@ -618,11 +621,6 @@ section { position: relative; }
 .cc-org { font-size: .78rem; font-weight: 600; color: var(--blue); margin-bottom: 12px; }
 .cc-desc { font-size: .82rem; color: var(--text-2); line-height: 1.65; margin-bottom: 16px; }
 .cc-year { font-family: var(--font-mono); font-size: .65rem; color: var(--text-3); }
-.cert-wip { background: rgba(139,92,246,.05); border-color: rgba(139,92,246,.2); }
-.cert-wip:hover { border-color: rgba(139,92,246,.4); }
-.wip-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-.wip-list li { display: flex; align-items: center; gap: 10px; font-size: .82rem; color: var(--text-2); }
-.wip-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--violet); flex-shrink: 0; }
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
