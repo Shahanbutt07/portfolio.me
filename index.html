@@ -18,7 +18,7 @@
     const { useState, useEffect, useRef, useCallback } = React;
 
     /* ════════════════════════════════════════════
-       DATA — PRODUCTION-GRADE ONLY
+       DATA
     ════════════════════════════════════════════ */
     const GLOBE_SKILLS = [
       { label:"Python",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
@@ -104,7 +104,6 @@
       },
     ];
 
-    // ONLY HOT PRODUCTION PROJECTS — NO STUDENT STUFF
     const PROJECTS = [
       {
         id:1, feat:true,
@@ -146,7 +145,7 @@
     ];
 
     /* ════════════════════════════════════════════
-       3D GLOBE COMPONENT — SLOWED DOWN
+       3D GLOBE COMPONENT
     ════════════════════════════════════════════ */
     function SkillsGlobe({ skills }) {
       const canvasRef = useRef(null);
@@ -483,24 +482,25 @@
     /* ════════════════════════════════════════════
        SMALL COMPONENTS
     ════════════════════════════════════════════ */
+
+    /* FIX 1: Full name on 3 lines — Muhammad / Shahan / Butt. */
     function HeroTitle() {
-      // FIXED: Full name Muhammad Shahan Butt
       const lines=[
-        {text:"Muhammad",cls:""},
-        {text:"Shahan",  cls:"grad"},
-        {text:"Butt.",   cls:"line-stroke"},
+        {text:"Muhammad", cls:""},
+        {text:"Shahan",   cls:"grad"},
+        {text:"Butt.",    cls:"line-stroke"},
       ];
       return (
         <h1 className="hero-h1">
-          {lines.map((line,li)=>[
+          {lines.map((line,li)=>(
             <span key={li} className={`hl ${line.cls}`}>
-              {line.text.split('').map((ch,ci)=>[
+              {line.text.split('').map((ch,ci)=>(
                 <span key={ci} className="char" style={{animationDelay:`${(li*8+ci)*0.04+0.2}s`}}>
-                  {ch===''?'\u00A0':ch}
+                  {ch===' '?'\u00A0':ch}
                 </span>
-              ])}
+              ))}
             </span>
-          ])}
+          ))}
         </h1>
       );
     }
@@ -509,12 +509,12 @@
       return (
         <div className="ticker-section">
           <div className="ticker-track">
-            {TICKER_WORDS.map((w,i)=>[
+            {[...TICKER_WORDS,...TICKER_WORDS].map((w,i)=>(
               <div key={i} className="ticker-item">
                 <span className="ticker-word">{w}</span>
                 <span className="ticker-dot"/>
               </div>
-            ])}
+            ))}
           </div>
         </div>
       );
@@ -586,9 +586,11 @@
             <div className="nav-inner">
               <a href="#hero" className="nav-logo"><span className="nb">[</span>MSB<span className="nb">]</span></a>
               <nav className="nav-links">
-                {['hero','skills','experience','projects','contact'].map(id=><a key={id} href={`#${id}`} className={`nav-link ${active===id?'active':''}`}>
+                {['hero','skills','experience','projects','contact'].map(id=>(
+                  <a key={id} href={`#${id}`} className={`nav-link ${active===id?'active':''}`}>
                     {id==='hero'?'About':id.charAt(0).toUpperCase()+id.slice(1)}
-                  </a>)}
+                  </a>
+                ))}
               </nav>
               <a href="mailto:shahansqb@gmail.com" className="nav-hire">
                 <span className="hire-dot"/>Available — Hire Me
@@ -596,7 +598,7 @@
             </div>
           </header>
 
-          {/* ── HERO — GENERIC, NO M-LINKS MENTION ── */}
+          {/* ── HERO ── */}
           <section className="hero" id="hero">
             <div className="hero-bg-text" aria-hidden="true">AI</div>
             <div className="hero-content container">
@@ -621,13 +623,15 @@
                     {val:"3+",  key:"Live\nDeployments"},
                     {val:"150+",key:"Daily AI\nInteractions"},
                     {val:"6",   key:"Cities\nServed"},
-                  ].map((s,i)=><React.Fragment key={s.val}>
+                  ].map((s,i)=>(
+                    <React.Fragment key={s.val}>
                       {i>0&&<div className="hstat-div"/>}
                       <div className="hstat">
                         <div className="hstat-val">{s.val}</div>
                         <div className="hstat-key">{s.key}</div>
                       </div>
-                    </React.Fragment>)}
+                    </React.Fragment>
+                  ))}
                 </div>
               </div>
               <div className="hero-right">
@@ -641,7 +645,7 @@
                     <div className="photo-meta">
                       <div>
                         <div className="photo-name">Muhammad Shahan Butt</div>
-                        <div className="photo-role">AI/ML & Computer Vision Engineer</div>
+                        <div className="photo-role">AI/ML &amp; Computer Vision Engineer</div>
                       </div>
                       <div className="photo-badge">Lahore, PK</div>
                     </div>
@@ -662,14 +666,14 @@
                 <h2 className="section-title">Technical <span className="grad">Mastery</span></h2>
                 <p className="section-sub">Three pillars — all production-tested, all deployed live.</p>
               </div>
-
               <div className="skills-layout">
                 <div className="globe-side reveal">
                   <SkillsGlobe skills={GLOBE_SKILLS}/>
                   <div className="globe-hint">Drag to rotate · Hover to explore</div>
                 </div>
                 <div className="cards-side">
-                  {SKILLS_CARDS.map((sk,i)=><div key={sk.num} className={`skill-card reveal d${i+1}`}
+                  {SKILLS_CARDS.map((sk,i)=>(
+                    <div key={sk.num} className={`skill-card reveal d${i+1}`}
                       style={{
                         '--accent-color':sk.accent,'--glow-color':sk.glow,
                         '--tag-bg':sk.tagBg,'--tag-border':sk.tagBorder,'--tag-color':sk.tagColor,
@@ -679,13 +683,14 @@
                       <h3>{sk.title}</h3>
                       <p>{sk.sub}</p>
                       <div className="sk-tags">{sk.tags.map(t=><span key={t} className="sk-tag">{t}</span>)}</div>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
-          {/* ── EXPERIENCE — FIXED ZIGZAG TIMELINE ── */}
+          {/* ── EXPERIENCE — ZIGZAG TIMELINE ── */}
           <section className="exp-section" id="experience">
             <div className="container">
               <div className="section-head reveal">
@@ -693,19 +698,36 @@
                 <h2 className="section-title">Where I've <span className="grad">Shipped</span></h2>
                 <p className="section-sub">From internship to building live platforms serving users across 6 cities.</p>
               </div>
+
+              {/* FIX 2: Rebuilt timeline with clean zigzag HTML structure */}
               <div className="timeline">
                 <div className="tl-spine"/>
-                {EXPERIENCE.map((item,i)=><div key={i} className={`tl-row ${item.side==='left'?'tl-left':'tl-right'} reveal ${i%2?'d1':''}`}>
-                    {item.side==='left'&&<div className="tl-card"><TLCard item={item}/></div>}
-                    <div className="tl-dot-wrap"><div className="tl-dot"><div className="tl-core"/></div></div>
-                    {item.side==='right'&&<div className="tl-card"><TLCard item={item}/></div>}
-                    <div className="tl-spacer"/>
-                  </div>)}
+                {EXPERIENCE.map((item,i)=>(
+                  <div key={i} className={`tl-row tl-${item.side} reveal ${i%2?'d1':''}`}>
+                    <div className="tl-left-slot">
+                      {item.side==='left' && (
+                        <div className="tl-card">
+                          <TLCard item={item}/>
+                        </div>
+                      )}
+                    </div>
+                    <div className="tl-dot-wrap">
+                      <div className="tl-dot"><div className="tl-core"/></div>
+                    </div>
+                    <div className="tl-right-slot">
+                      {item.side==='right' && (
+                        <div className="tl-card">
+                          <TLCard item={item}/>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
 
-          {/* ── PROJECTS — ONLY HOT PRODUCTION WORK ── */}
+          {/* ── PROJECTS ── */}
           <section className="projects-section" id="projects">
             <div className="container">
               <div className="proj-hdr reveal">
@@ -721,7 +743,7 @@
             </div>
           </section>
 
-          {/* ── HIRE / CONTACT ── */}
+          {/* ── CONTACT ── */}
           <section className="hire-section" id="contact">
             <div className="container">
               <div className="hire-card reveal">
@@ -740,14 +762,16 @@
                       {icon:"✉",label:"Email",val:"shahansqb@gmail.com",href:"mailto:shahansqb@gmail.com"},
                       {icon:"in",label:"LinkedIn",val:"shahan-butt-aiengineer",href:"https://www.linkedin.com/in/shahan-butt-aiengineer/",ext:true},
                       {icon:"⌥",label:"GitHub",val:"Shahanbutt07",href:"https://github.com/Shahanbutt07",ext:true},
-                    ].map(row=><a key={row.label} href={row.href} target={row.ext?"_blank":undefined}
+                    ].map(row=>(
+                      <a key={row.label} href={row.href} target={row.ext?"_blank":undefined}
                          rel={row.ext?"noopener":undefined} className="hire-row">
                         <div className="hire-row-left">
                           <div className="hire-icon">{row.icon}</div>
                           <div><div className="hire-label">{row.label}</div><div className="hire-val">{row.val}</div></div>
                         </div>
                         <span className="hire-arrow">→</span>
-                      </a>)}
+                      </a>
+                    ))}
                     <div className="avail-badge"><span className="avail-dot"/>Available · Full-time &amp; Contract · Remote / Lahore</div>
                   </div>
                 </div>
@@ -766,13 +790,15 @@
                 {[
                   {icon:"🏆",title:"Data Science with Python",org:"Great Learning",desc:"Data mining, predictive modeling, and statistical analysis for AI/ML applications.",year:"July 2023",cls:""},
                   {icon:"🎓",title:"Best Academic Result Award",org:"University of Management & Technology",desc:"Awarded twice for outstanding academic performance specialising in AI & Computer Vision.",year:"2023 & 2025",cls:""},
-                ].map((c,i)=><div key={i} className={`cert-card reveal d${i+1} ${c.cls}`}>
+                ].map((c,i)=>(
+                  <div key={i} className={`cert-card reveal d${i+1} ${c.cls}`}>
                     <span className="cc-icon">{c.icon}</span>
                     <h3>{c.title}</h3>
                     {c.org&&<div className="cc-org">{c.org}</div>}
                     <p className="cc-desc">{c.desc}</p>
                     <div className="cc-year">{c.year}</div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -784,12 +810,14 @@
               <div className="footer-top">
                 <div>
                   <div className="footer-brand"><span className="grad">Shahan</span><br/>Butt.</div>
-                  <div className="footer-tagline">AI/ML & Computer Vision Engineer · Lahore, PK</div>
+                  <div className="footer-tagline">AI/ML &amp; Computer Vision Engineer · Lahore, PK</div>
                 </div>
                 <div className="footer-nav">
                   <div className="fnav-col">
                     <h4>Navigate</h4>
-                    {['About','Skills','Experience','Projects'].map(l=><a key={l} href={`#${l==='About'?'hero':l.toLowerCase()}`}>{l}</a>)}
+                    {['About','Skills','Experience','Projects'].map(l=>(
+                      <a key={l} href={`#${l==='About'?'hero':l.toLowerCase()}`}>{l}</a>
+                    ))}
                   </div>
                   <div className="fnav-col">
                     <h4>Connect</h4>
