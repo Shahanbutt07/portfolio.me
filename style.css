@@ -208,6 +208,7 @@ section { position: relative; }
 }
 @keyframes ripple { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(2.5);opacity:0} }
 
+/* FIXED HERO NAME: Muhammad Shahan Butt */
 .hero-h1 {
   font-size: clamp(3.2rem, 6vw, 6rem); font-weight: 900;
   line-height: 0.95; letter-spacing: -4px; margin-bottom: 24px;
@@ -424,20 +425,57 @@ section { position: relative; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   EXPERIENCE
+   EXPERIENCE — FIXED ZIGZAG TIMELINE
 ═══════════════════════════════════════════════════════ */
 .exp-section { padding: 0 0 120px; }
 
-.timeline { position: relative; max-width: 980px; margin: 0 auto; }
+.timeline { position: relative; max-width: 1100px; margin: 0 auto; }
 .tl-spine {
-  position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
   background: linear-gradient(to bottom, transparent, var(--blue) 10%, var(--violet) 90%, transparent);
   transform: translateX(-50%);
 }
-.tl-row { display: flex; align-items: flex-start; margin-bottom: 60px; position: relative; }
-.tl-card { width: 44%; }
-.tl-spacer { width: 44%; }
-.tl-dot-wrap { width: 12%; display: flex; justify-content: center; padding-top: 28px; flex-shrink: 0; }
+
+/* Each row is a flex container with 3 children: card | dot | spacer (or spacer | dot | card) */
+.tl-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+/* Left side card */
+.tl-left .tl-card {
+  width: 42%;
+  order: 1;
+  text-align: right;
+}
+.tl-left .tl-spacer {
+  width: 42%;
+  order: 3;
+}
+
+/* Right side card */
+.tl-right .tl-card {
+  width: 42%;
+  order: 3;
+  text-align: left;
+}
+.tl-right .tl-spacer {
+  width: 42%;
+  order: 1;
+}
+
+/* Dot always in center */
+.tl-dot-wrap {
+  width: 16%;
+  display: flex;
+  justify-content: center;
+  padding-top: 28px;
+  order: 2;
+  flex-shrink: 0;
+}
+
 .tl-dot {
   width: 22px; height: 22px; border-radius: 50%; background: var(--bg);
   border: 2px solid var(--blue); display: flex; align-items: center; justify-content: center;
@@ -460,8 +498,12 @@ section { position: relative; }
   border-color: rgba(59,130,246,.3); transform: translateY(-4px);
   box-shadow: 0 20px 50px rgba(0,0,0,.4), 0 0 30px rgba(59,130,246,.08);
 }
-.tl-left .tl-card { text-align: right; padding-right: 28px; }
-.tl-left .tl-meta, .tl-left .tl-tags { justify-content: flex-end; }
+
+/* Left card text alignment */
+.tl-left .tl-meta { justify-content: flex-end; }
+.tl-left .tl-tags { justify-content: flex-end; }
+.tl-left .tl-role { justify-content: flex-end; }
+
 .tl-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
 .tl-date { font-family: var(--font-mono); font-size: .68rem; color: var(--blue); font-weight: 500; letter-spacing: .5px; }
 .tl-badge { font-size: .62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; }
@@ -472,7 +514,6 @@ section { position: relative; }
 
 .tl-company { font-size: 1.05rem; font-weight: 800; letter-spacing: -.3px; margin-bottom: 4px; }
 .tl-role { font-size: .78rem; color: var(--blue); font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
-.tl-left .tl-role { justify-content: flex-end; }
 .role-dot { width: 5px; height: 5px; background: var(--blue); border-radius: 50%; flex-shrink: 0; }
 .tl-desc { font-size: .845rem; color: var(--text-2); line-height: 1.75; margin-bottom: 16px; }
 .tl-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
@@ -485,7 +526,7 @@ section { position: relative; }
 .tl-link:hover { opacity: .7; }
 
 /* ═══════════════════════════════════════════════════════
-   PROJECTS — 3 HOT PRODUCTION PROJECTS
+   PROJECTS
 ═══════════════════════════════════════════════════════ */
 .projects-section { padding: 0 0 120px; }
 .proj-hdr { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 56px; flex-wrap: wrap; gap: 20px; }
@@ -495,7 +536,6 @@ section { position: relative; }
 }
 .all-link:hover { color: var(--blue); border-color: var(--blue); }
 
-/* 3 projects: 1 featured (spans 2) + 2 normal */
 .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .proj-feat { grid-column: span 2; }
 
@@ -665,12 +705,12 @@ section { position: relative; }
   .hero-content { grid-template-columns: 1fr; }
   .photo-card { max-width: 380px; margin: 0 auto; }
   .cert-grid { grid-template-columns: 1fr; }
-  .tl-spine { display: none; }
-  .tl-row { flex-direction: column !important; }
-  .tl-spacer, .tl-dot-wrap { display: none; }
-  .tl-card { width: 100% !important; text-align: left !important; padding: 24px !important; }
-  .tl-meta, .tl-tags, .tl-role { justify-content: flex-start !important; }
-  .timeline { padding-left: 18px; border-left: 1px solid rgba(59,130,246,.3); }
+  /* Timeline becomes vertical on tablet */
+  .tl-spine { left: 24px; }
+  .tl-row { flex-direction: column !important; margin-bottom: 40px; }
+  .tl-card { width: 100% !important; order: 2 !important; text-align: left !important; margin-left: 48px; }
+  .tl-spacer { display: none; }
+  .tl-dot-wrap { width: auto; order: 1 !important; justify-content: flex-start; padding-top: 0; margin-bottom: 12px; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -684,6 +724,10 @@ section { position: relative; }
   .section-title { letter-spacing: -1.5px; }
   body { cursor: auto; }
   #cursor, #cursor-ring { display: none; }
+  /* Mobile timeline */
+  .tl-spine { display: none; }
+  .tl-card { margin-left: 0; }
+  .tl-dot-wrap { display: none; }
 }
 @media (max-width: 480px) {
   .hero-stats { flex-wrap: wrap; }
