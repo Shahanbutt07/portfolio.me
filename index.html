@@ -69,12 +69,12 @@
 
     const EXPERIENCE = [
       {
-        period:"Nov 2025 — Present", side:"left",
+        period:"Nov 2025 — Apr 2026", side:"left",
         company:"M-Links Real Estate",
         role:"AI Engineer & PropTech Developer · Contract",
         desc:"Architected and deployed the full mlinksrealestate.com platform — LLM chatbot handling 150+ daily inquiries, property search, WhatsApp CRM for DHA properties across 6 cities. Built data pipelines analyzing property datasets informing pricing decisions. 24/7 operation, zero human intervention.",
         tags:["PHP","MySQL","LangChain","n8n","WhatsApp CRM","AI Chatbot"],
-        badge:"Live", badgeClass:"badge-live",
+        badge:"Completed", badgeClass:"badge-done",
         link:"https://mlinksrealestate.com", linkText:"Visit Site ↗"
       },
       {
@@ -130,7 +130,7 @@
       },
       {
         id:3, feat:false,
-        img:"ai_email_automation.png",  // <-- ADD YOUR AUTOMATION IMAGE HERE
+        img:"ai_email_automation.png",
         chip:"⚡ Live Pipeline", chipClass:"pch-live",
         title:"AI Email Automation Pipeline",
         desc:"Intelligent email processing pipeline classifying incoming emails into 6 categories, auto-drafting professional replies, pinging Slack channels, and logging to Google Sheets. Built-in retry logic and error handling for production reliability.",
@@ -200,17 +200,15 @@
 
           ctx.clearRect(0, 0, W, H);
 
-          // SLOW AUTO-ROTATE: only when not dragging and not interacted
           if (!s.dragging && !s.isInteracted) {
             s.velX *= 0.98;
-            s.velY  = s.velY * 0.98 + 0.0008;  // VERY SLOW base rotation
+            s.velY  = s.velY * 0.98 + 0.0008;
           } else if (!s.dragging) {
-            // After interaction, slow decay to gentle rotation
             s.velX *= 0.95;
             s.velY *= 0.95;
             if (Math.abs(s.velY) < 0.0008) {
               s.velY = 0.0008;
-              s.isInteracted = false;  // reset after settling
+              s.isInteracted = false;
             }
           }
           s.rotX += s.velX;
@@ -337,7 +335,7 @@
           if (s.dragging) {
             const dx = x - s.lastX;
             const dy = y - s.lastY;
-            s.velY = dx * 0.004;  // SLOWER drag response
+            s.velY = dx * 0.004;
             s.velX = dy * 0.004;
             s.rotY += dx * 0.004;
             s.rotX += dy * 0.004;
@@ -486,7 +484,7 @@
        SMALL COMPONENTS
     ════════════════════════════════════════════ */
     function HeroTitle() {
-      // FULL NAME: Muhammad Shahan Butt
+      // FIXED: Full name Muhammad Shahan Butt
       const lines=[
         {text:"Muhammad",cls:""},
         {text:"Shahan",  cls:"grad"},
@@ -598,7 +596,7 @@
             </div>
           </header>
 
-          {/* ── HERO ── */}
+          {/* ── HERO — GENERIC, NO M-LINKS MENTION ── */}
           <section className="hero" id="hero">
             <div className="hero-bg-text" aria-hidden="true">AI</div>
             <div className="hero-content container">
@@ -609,9 +607,9 @@
                 </div>
                 <HeroTitle/>
                 <p className="hero-sub">
-                  I build AI that ships to production — LLM chatbots, RAG pipelines &amp; Computer Vision for real clients.
-                  Recently architected full PropTech AI at{' '}
-                  <a href="https://mlinksrealestate.com" target="_blank" rel="noopener">M-Links Real Estate ↗</a>
+                  AI Engineer with 1+ year of production experience building LLM-powered chatbots, 
+                  RAG pipelines, and real-time Computer Vision systems. Strong Python and ML/DL 
+                  fundamentals with hands-on experience in LangChain, TensorFlow, and FastAPI.
                 </p>
                 <div className="btn-row">
                   <a href="#projects" className="btn-primary"><span>View My Work</span><span className="btn-arrow">→</span></a>
@@ -619,10 +617,10 @@
                 </div>
                 <div className="hero-stats">
                   {[
+                    {val:"1+",  key:"Years\nExperience"},
                     {val:"3+",  key:"Live\nDeployments"},
                     {val:"150+",key:"Daily AI\nInteractions"},
                     {val:"6",   key:"Cities\nServed"},
-                    {val:"24/7",key:"Systems\nRunning"},
                   ].map((s,i)=><React.Fragment key={s.val}>
                       {i>0&&<div className="hstat-div"/>}
                       <div className="hstat">
@@ -687,7 +685,7 @@
             </div>
           </section>
 
-          {/* ── EXPERIENCE ── */}
+          {/* ── EXPERIENCE — FIXED ZIGZAG TIMELINE ── */}
           <section className="exp-section" id="experience">
             <div className="container">
               <div className="section-head reveal">
