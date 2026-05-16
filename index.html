@@ -12,23 +12,19 @@
 
   <style>
     /* ── HERO NAME FIX ──────────────────────────────────────
-        .hl MUST be overflow:visible so -webkit-background-clip
-        gradient text on the "Shahan" line is never clipped.
-        The char animation starts at opacity:0 + translateY(60px);
-        overflow:hidden was eating the whole line during the lift.
+       .hl MUST be overflow:visible so -webkit-background-clip
+       gradient text on the "Shahan" line is never clipped.
+       The char animation starts at opacity:0 + translateY(60px);
+       overflow:hidden was eating the whole line during the lift.
     ─────────────────────────────────────────────────────── */
     .hero-h1 {
-      line-height: 1.05 !important;
+      line-height: 1.1 !important;
       letter-spacing: -4px;
-      margin: 0;
-      padding: 0;
-      overflow: visible;
     }
     .hl {
       display: block !important;
       overflow: visible !important;  /* CRITICAL — do not change to hidden */
-      padding-bottom: 2px;
-      white-space: nowrap;
+      padding-bottom: 6px;
     }
     .hl.grad {
       background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
@@ -48,20 +44,9 @@
       animation: charIn 0.6s cubic-bezier(.23,1,.32,1) forwards;
       /* fill-mode: forwards keeps opacity:1 after animation ends */
       animation-fill-mode: forwards;
-      will-change: transform, opacity;
     }
     @keyframes charIn {
       to { opacity: 1; transform: translateY(0) rotateX(0deg); }
-    }
-
-    /* Prevent clipping in hero layout */
-    .hero-left {
-      min-width: 0;
-      overflow: visible;
-    }
-    
-    .hero-content {
-      overflow: visible;
     }
   </style>
 
@@ -74,7 +59,7 @@
     const { useState, useEffect, useRef, useCallback } = React;
 
     /* ════════════════════════════════════════════
-        DATA
+       DATA
     ════════════════════════════════════════════ */
     const GLOBE_SKILLS = [
       { label:"Python",       img:"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
@@ -201,7 +186,7 @@
     ];
 
     /* ════════════════════════════════════════════
-        3D GLOBE COMPONENT
+       3D GLOBE COMPONENT
     ════════════════════════════════════════════ */
     function SkillsGlobe({ skills }) {
       const canvasRef = useRef(null);
@@ -445,7 +430,7 @@
     }
 
     /* ════════════════════════════════════════════
-        HOOKS
+       HOOKS
     ════════════════════════════════════════════ */
     function useScrollReveal() {
       useEffect(() => {
@@ -534,13 +519,13 @@
     }
 
     /* ════════════════════════════════════════════
-        HERO TITLE — FIXED
-        Three lines: Muhammad / Shahan (gradient) / Butt. (stroke)
+       HERO TITLE — FIXED
+       Three lines: Muhammad / Shahan (gradient) / Butt. (stroke)
+       No overflow:hidden anywhere in this component.
     ════════════════════════════════════════════ */
     function HeroTitle() {
       const lines = [
-        { text: "Muhammad", cls: "" },
-        { text: "Shahan",   cls: "grad" },
+        { text: "M.Shahan", cls: "" },
         { text: "Butt.",    cls: "line-stroke" },
       ];
       return (
@@ -603,7 +588,7 @@
                 <div className="proj-overlay-title">{p.title}</div>
                 <div className="proj-overlay-links">
                   {p.links.map(l=><a key={l.label} href={l.href} target="_blank" rel="noopener"
-                               className={`overlay-btn ${l.ghost?'overlay-btn-ghost':''}`}>{l.label}</a>)}
+                       className={`overlay-btn ${l.ghost?'overlay-btn-ghost':''}`}>{l.label}</a>)}
                 </div>
               </div>
             </div>
@@ -616,7 +601,7 @@
             <div className="proj-tags">{p.tags.map(t=><span key={t} className="proj-tag">{t}</span>)}</div>
             <div className="proj-foot">
               {p.links.map(l=><a key={l.label} href={l.href} target="_blank" rel="noopener"
-                               className={`plink ${l.ghost?'plink-ghost':''}`}>{l.label}</a>)}
+                   className={`plink ${l.ghost?'plink-ghost':''}`}>{l.label}</a>)}
             </div>
           </div>
         </div>
@@ -624,7 +609,7 @@
     }
 
     /* ════════════════════════════════════════════
-        APP
+       APP
     ════════════════════════════════════════════ */
     function App() {
       useScrollReveal();
@@ -679,10 +664,10 @@
                     {val:"1+",  key:"Years\nExperience"},
                     {val:"3+",  key:"Live\nDeployments"},
                     {val:"150+",key:"Daily AI\nInteractions"},
-                    {val:"10+", key:"Projects\nCompleted"},  {/* Changed from 6 Cities Served */}
+                    {val:"6",   key:"Cities\nServed"},
                   ].map((s,i)=>(
                     <React.Fragment key={s.val}>
-                      {i>0&&<<div className="hstat-div"/>}
+                      {i>0&&<div className="hstat-div"/>}
                       <div className="hstat">
                         <div className="hstat-val">{s.val}</div>
                         <div className="hstat-key">{s.key}</div>
@@ -746,12 +731,149 @@
               </div>
             </div>
           </section>
+
+          {/* ── EXPERIENCE ── */}
+          <section className="exp-section" id="experience">
+            <div className="container">
+              <div className="section-head reveal">
+                <div className="eyebrow">Career</div>
+                <h2 className="section-title">Where I've <span className="grad">Shipped</span></h2>
+                <p className="section-sub">From internship to building live platforms serving users across 6 cities.</p>
+              </div>
+              <div className="timeline">
+                <div className="tl-spine"/>
+                {EXPERIENCE.map((item,i)=>(
+                  <div key={i} className={`tl-row tl-${item.side} reveal ${i%2?'d1':''}`}>
+                    <div className="tl-left-slot">
+                      {item.side==='left' && (
+                        <div className="tl-card"><TLCard item={item}/></div>
+                      )}
+                    </div>
+                    <div className="tl-dot-wrap">
+                      <div className="tl-dot"><div className="tl-core"/></div>
+                    </div>
+                    <div className="tl-right-slot">
+                      {item.side==='right' && (
+                        <div className="tl-card"><TLCard item={item}/></div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ── PROJECTS ── */}
+          <section className="projects-section" id="projects">
+            <div className="container">
+              <div className="proj-hdr reveal">
+                <div>
+                  <div className="eyebrow">Selected Work</div>
+                  <h2 className="section-title">Projects That <span className="grad">Ship</span></h2>
+                </div>
+                <a href="https://github.com/Shahanbutt07" target="_blank" rel="noopener" className="all-link">All repos →</a>
+              </div>
+              <div className="proj-grid">
+                {PROJECTS.map(p=><ProjCard key={p.id} p={p}/>)}
+              </div>
+            </div>
+          </section>
+
+          {/* ── CONTACT ── */}
+          <section className="hire-section" id="contact">
+            <div className="container">
+              <div className="hire-card reveal">
+                <div className="hire-glow"/>
+                <div className="hire-inner">
+                  <div className="hire-left">
+                    <div className="eyebrow" style={{color:'rgba(255,255,255,.3)'}}>Open for Business</div>
+                    <h2 className="hire-title">Have a project <span className="grad">in mind?</span></h2>
+                    <p className="hire-desc">I take AI ideas from whiteboard to live production — chatbots, vision systems, LLM backends. Real code. Real results.</p>
+                    <a href="mailto:shahansqb@gmail.com" className="btn-primary">
+                      <span>Start a Project</span><span className="btn-arrow">→</span>
+                    </a>
+                  </div>
+                  <div className="hire-right">
+                    {[
+                      {icon:"✉",label:"Email",val:"shahansqb@gmail.com",href:"mailto:shahansqb@gmail.com"},
+                      {icon:"in",label:"LinkedIn",val:"shahan-butt-aiengineer",href:"https://www.linkedin.com/in/shahan-butt-aiengineer/",ext:true},
+                      {icon:"⌥",label:"GitHub",val:"Shahanbutt07",href:"https://github.com/Shahanbutt07",ext:true},
+                    ].map(row=>(
+                      <a key={row.label} href={row.href} target={row.ext?"_blank":undefined}
+                         rel={row.ext?"noopener":undefined} className="hire-row">
+                        <div className="hire-row-left">
+                          <div className="hire-icon">{row.icon}</div>
+                          <div><div className="hire-label">{row.label}</div><div className="hire-val">{row.val}</div></div>
+                        </div>
+                        <span className="hire-arrow">→</span>
+                      </a>
+                    ))}
+                    <div className="avail-badge"><span className="avail-dot"/>Available · Full-time &amp; Contract · Remote / Lahore</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ── CERTS ── */}
+          <section className="cert-section">
+            <div className="container">
+              <div className="section-head reveal">
+                <div className="eyebrow">Credentials</div>
+                <h2 className="section-title"><span className="grad">Certifications</span></h2>
+              </div>
+              <div className="cert-grid">
+                {[
+                  {icon:"🏆",title:"Data Science with Python",org:"Great Learning",desc:"Data mining, predictive modeling, and statistical analysis for AI/ML applications.",year:"July 2023"},
+                  {icon:"🎓",title:"Best Academic Result Award",org:"University of Management & Technology",desc:"Awarded twice for outstanding academic performance specialising in AI & Computer Vision.",year:"2023 & 2025"},
+                ].map((c,i)=>(
+                  <div key={i} className={`cert-card reveal d${i+1}`}>
+                    <span className="cc-icon">{c.icon}</span>
+                    <h3>{c.title}</h3>
+                    {c.org&&<div className="cc-org">{c.org}</div>}
+                    <p className="cc-desc">{c.desc}</p>
+                    <div className="cc-year">{c.year}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ── FOOTER ── */}
+          <footer className="footer">
+            <div className="footer-glow"/>
+            <div className="footer-inner container">
+              <div className="footer-top">
+                <div>
+                  <div className="footer-brand"><span className="grad">Shahan</span><br/>Butt.</div>
+                  <div className="footer-tagline">AI/ML &amp; Computer Vision Engineer · Lahore, PK</div>
+                </div>
+                <div className="footer-nav">
+                  <div className="fnav-col">
+                    <h4>Navigate</h4>
+                    {['About','Skills','Experience','Projects'].map(l=>(
+                      <a key={l} href={`#${l==='About'?'hero':l.toLowerCase()}`}>{l}</a>
+                    ))}
+                  </div>
+                  <div className="fnav-col">
+                    <h4>Connect</h4>
+                    <a href="mailto:shahansqb@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/shahan-butt-aiengineer/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/Shahanbutt07" target="_blank" rel="noopener">GitHub</a>
+                  </div>
+                </div>
+              </div>
+              <div className="footer-bottom">
+                <span className="footer-copy">© 2025 Muhammad Shahan Butt. All rights reserved.</span>
+                <span className="footer-copy">Built with precision · Lahore, Pakistan</span>
+              </div>
+            </div>
+          </footer>
         </>
       );
     }
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
 </body>
 </html>
