@@ -18,13 +18,17 @@
         overflow:hidden was eating the whole line during the lift.
     ─────────────────────────────────────────────────────── */
     .hero-h1 {
-      line-height: 1.1 !important;
+      line-height: 1.05 !important;
       letter-spacing: -4px;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
     }
     .hl {
       display: block !important;
       overflow: visible !important;  /* CRITICAL — do not change to hidden */
-      padding-bottom: 6px;
+      padding-bottom: 2px;
+      white-space: nowrap;
     }
     .hl.grad {
       background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
@@ -44,9 +48,20 @@
       animation: charIn 0.6s cubic-bezier(.23,1,.32,1) forwards;
       /* fill-mode: forwards keeps opacity:1 after animation ends */
       animation-fill-mode: forwards;
+      will-change: transform, opacity;
     }
     @keyframes charIn {
       to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+    }
+
+    /* Prevent clipping in hero layout */
+    .hero-left {
+      min-width: 0;
+      overflow: visible;
+    }
+    
+    .hero-content {
+      overflow: visible;
     }
   </style>
 
@@ -664,10 +679,10 @@
                     {val:"1+",  key:"Years\nExperience"},
                     {val:"3+",  key:"Live\nDeployments"},
                     {val:"150+",key:"Daily AI\nInteractions"},
-                    {val:"6",   key:"Cities\nServed"},
+                    {val:"10+", key:"Projects\nCompleted"},  {/* Changed from 6 Cities Served */}
                   ].map((s,i)=>(
                     <React.Fragment key={s.val}>
-                      {i>0&&<div className="hstat-div"/>}
+                      {i>0&&<<div className="hstat-div"/>}
                       <div className="hstat">
                         <div className="hstat-val">{s.val}</div>
                         <div className="hstat-key">{s.key}</div>
