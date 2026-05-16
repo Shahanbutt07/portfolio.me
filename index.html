@@ -659,23 +659,19 @@
                   <a href="#projects" className="btn-primary"><span>View My Work</span><span className="btn-arrow">→</span></a>
                   <a href="mailto:shahansqb@gmail.com" className="btn-secondary">Let's Talk</a>
                 </div>
-               <div className="hero-stats">
-                {[
-                  {val:"1+",    key:"Years\nExperience"},
-                  {val:"3+",    key:"Live\nDeployments"},
-                  {val:"150+",  key:"Daily AI\nInteractions"},
-                  {val:"10+",   key:"Projects\nCompleted"},
-                ].map((s, i) => (
-    /* Use the index 'i' as the key instead of 's.val' */
-                  <React.Fragment key={i}> 
-                    {i > 0 && <div className="hstat-div"/>}
-                    <div className="hstat">
-                      <div className="hstat-val">{s.val}</div>
-                      <div className="hstat-key">{s.key}</div>
-                    </div>
-                  </React.Fragment>
-                ))}
-              </div>
+                <div className="hero-stats">
+                  {[
+                    {val:"1+",  key:"Years\nExperience"},
+                    {val:"3+",  key:"Live\nDeployments"},
+                    {val:"150+",key:"Daily AI\nInteractions"},
+                    {val:"6",   key:"Cities\nServed"},
+                  ].map((s,i)=>(
+                    <React.Fragment key={s.val}>
+                      {i>0&&<div className="hstat-div"/>}
+                      <div className="hstat">
+                        <div className="hstat-val">{s.val}</div>
+                        <div className="hstat-key">{s.key}</div>
+                      </div>
                     </React.Fragment>
                   ))}
                 </div>
