@@ -9,7 +9,47 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js" crossorigin></script>
-<base target="_blank">
+
+  <style>
+    /* ── HERO NAME FIX ──────────────────────────────────────
+       .hl MUST be overflow:visible so -webkit-background-clip
+       gradient text on the "Shahan" line is never clipped.
+       The char animation starts at opacity:0 + translateY(60px);
+       overflow:hidden was eating the whole line during the lift.
+    ─────────────────────────────────────────────────────── */
+    .hero-h1 {
+      line-height: 1.1 !important;
+      letter-spacing: -4px;
+    }
+    .hl {
+      display: block !important;
+      overflow: visible !important;  /* CRITICAL — do not change to hidden */
+      padding-bottom: 6px;
+    }
+    .hl.grad {
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hl.line-stroke {
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(241,245,249,0.35);
+    }
+    /* Each char: animation plays fully before considered done */
+    .char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(60px) rotateX(-40deg);
+      animation: charIn 0.6s cubic-bezier(.23,1,.32,1) forwards;
+      /* fill-mode: forwards keeps opacity:1 after animation ends */
+      animation-fill-mode: forwards;
+    }
+    @keyframes charIn {
+      to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+    }
+  </style>
+
 <base target="_blank">
 </head>
 <body>
@@ -322,8 +362,6 @@
           stateRef.current.isInteracted = true;
           stateRef.current.lastX = x;
           stateRef.current.lastY = y;
-          stateRef.current.lastMX = x;
-          stateRef.current.lastMY = y;
           stateRef.current.velX = 0;
           stateRef.current.velY = 0;
         };
@@ -481,23 +519,27 @@
     }
 
     /* ════════════════════════════════════════════
-       SMALL COMPONENTS
+       HERO TITLE — FIXED
+       Three lines: Muhammad / Shahan (gradient) / Butt. (stroke)
+       No overflow:hidden anywhere in this component.
     ════════════════════════════════════════════ */
-
-    /* FIX 1: Full name on 3 lines — Muhammad / Shahan / Butt. */
     function HeroTitle() {
-      const lines=[
-        {text:"Muhammad", cls:""},
-        {text:"Shahan",   cls:"grad"},
-        {text:"Butt.",    cls:"line-stroke"},
+      const lines = [
+        { text: "Muhammad", cls: "" },
+        { text: "Shahan",   cls: "grad" },
+        { text: "Butt.",    cls: "line-stroke" },
       ];
       return (
         <h1 className="hero-h1">
-          {lines.map((line,li)=>(
+          {lines.map((line, li) => (
             <span key={li} className={`hl ${line.cls}`}>
-              {line.text.split('').map((ch,ci)=>(
-                <span key={ci} className="char" style={{animationDelay:`${(li*8+ci)*0.04+0.2}s`}}>
-                  {ch===' '?'\u00A0':ch}
+              {line.text.split('').map((ch, ci) => (
+                <span
+                  key={ci}
+                  className="char"
+                  style={{ animationDelay: `${(li * 8 + ci) * 0.04 + 0.2}s` }}
+                >
+                  {ch === ' ' ? '\u00A0' : ch}
                 </span>
               ))}
             </span>
@@ -610,8 +652,8 @@
                 </div>
                 <HeroTitle/>
                 <p className="hero-sub">
-                  AI Engineer with 1+ year of production experience building LLM-powered chatbots, 
-                  RAG pipelines, and real-time Computer Vision systems. Strong Python and ML/DL 
+                  AI Engineer with 1+ year of production experience building LLM-powered chatbots,
+                  RAG pipelines, and real-time Computer Vision systems. Strong Python and ML/DL
                   fundamentals with hands-on experience in LangChain, TensorFlow, and FastAPI.
                 </p>
                 <div className="btn-row">
@@ -691,7 +733,7 @@
             </div>
           </section>
 
-          {/* ── EXPERIENCE — ZIGZAG TIMELINE ── */}
+          {/* ── EXPERIENCE ── */}
           <section className="exp-section" id="experience">
             <div className="container">
               <div className="section-head reveal">
@@ -699,17 +741,13 @@
                 <h2 className="section-title">Where I've <span className="grad">Shipped</span></h2>
                 <p className="section-sub">From internship to building live platforms serving users across 6 cities.</p>
               </div>
-
-              {/* FIX 2: Rebuilt timeline with clean zigzag HTML structure */}
               <div className="timeline">
                 <div className="tl-spine"/>
                 {EXPERIENCE.map((item,i)=>(
                   <div key={i} className={`tl-row tl-${item.side} reveal ${i%2?'d1':''}`}>
                     <div className="tl-left-slot">
                       {item.side==='left' && (
-                        <div className="tl-card">
-                          <TLCard item={item}/>
-                        </div>
+                        <div className="tl-card"><TLCard item={item}/></div>
                       )}
                     </div>
                     <div className="tl-dot-wrap">
@@ -717,9 +755,7 @@
                     </div>
                     <div className="tl-right-slot">
                       {item.side==='right' && (
-                        <div className="tl-card">
-                          <TLCard item={item}/>
-                        </div>
+                        <div className="tl-card"><TLCard item={item}/></div>
                       )}
                     </div>
                   </div>
@@ -789,10 +825,10 @@
               </div>
               <div className="cert-grid">
                 {[
-                  {icon:"🏆",title:"Data Science with Python",org:"Great Learning",desc:"Data mining, predictive modeling, and statistical analysis for AI/ML applications.",year:"July 2023",cls:""},
-                  {icon:"🎓",title:"Best Academic Result Award",org:"University of Management & Technology",desc:"Awarded twice for outstanding academic performance specialising in AI & Computer Vision.",year:"2023 & 2025",cls:""},
+                  {icon:"🏆",title:"Data Science with Python",org:"Great Learning",desc:"Data mining, predictive modeling, and statistical analysis for AI/ML applications.",year:"July 2023"},
+                  {icon:"🎓",title:"Best Academic Result Award",org:"University of Management & Technology",desc:"Awarded twice for outstanding academic performance specialising in AI & Computer Vision.",year:"2023 & 2025"},
                 ].map((c,i)=>(
-                  <div key={i} className={`cert-card reveal d${i+1} ${c.cls}`}>
+                  <div key={i} className={`cert-card reveal d${i+1}`}>
                     <span className="cc-icon">{c.icon}</span>
                     <h3>{c.title}</h3>
                     {c.org&&<div className="cc-org">{c.org}</div>}
@@ -842,3 +878,5 @@
   </script>
 </body>
 </html>
+
+
